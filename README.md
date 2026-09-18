@@ -26,21 +26,25 @@
 
 Apple 当前公开资料可以直接确认：
 
-- 钛金属和陶瓷表款的正面都使用 Sapphire front crystal。
+- 钛金属和珍珠白陶瓷表款的正面都使用 Sapphire front crystal。
 - Series 12 钛金属版的表背为 titanium back。
 - Series 12 陶瓷版的表背为 ceramic back。
 - Apple 没有在 Series 12 技术规格中公开珍珠白陶瓷表壳的具体化学配方。
 - 2026 Apple Watch Series 12 产品环境报告明确排除了陶瓷表壳版本，因此不能用该报告给陶瓷表壳指定化学组成。
 
-## 氧化锆证据边界
+## Apple 已公开的白色精密陶瓷路线
 
-Apple Inc. 的专利资料公开过用于电子手表和电子设备外壳的 zirconia-based ceramic 技术，包括：
+2016 年白色陶瓷 Apple Watch Edition 上，Apple 官方称陶瓷比不锈钢硬四倍、非常耐刮。美国陶瓷学会当年的报道引用 Apple 的材料工艺说明：高强度氧化锆粉末与氧化铝混合，压制成型、烧结，再用金刚石浆料抛光。
 
-- partially stabilized zirconia ceramic
-- alumina-toughened zirconia ceramic
-- yttria-sensitized zirconia，公开实施例约含 1.5–2.5 mol% yttria
+Apple 后来的电子手表相关专利进一步公开了 zirconia-based ceramic 技术范围，例如：
 
-这些专利说明氧化锆基陶瓷是 Apple 已公开的材料技术路线，但目前没有 Series 12 产品级公开文件证明珍珠白陶瓷表壳采用其中某一种具体配方。
+- 2–4 mol% yttrium oxide（氧化钇）
+- up to 20 wt% alumina（最高 20 wt% 氧化铝）
+- K_IC fracture toughness 4–6 MPa·√m
+
+这类稳定氧化锆可以通过相变增韧阻碍裂纹扩展，因此比普通家用陶瓷更适合作为结构件；但它仍属于脆性材料，尖锐冲击下仍可能崩边或开裂。
+
+这些历史资料和专利证明 Apple 有成熟的氧化锆基精密陶瓷路线，但目前没有 Series 12 产品级公开文件证明珍珠白表壳采用某一个具体配方。
 
 ## 主要来源
 
