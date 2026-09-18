@@ -60,6 +60,14 @@
     .fact h3,.material-block h3,.decision-card h3{font-size:23px;margin:7px 0 8px;letter-spacing:-.035em}
     .fact p,.material-block p,.decision-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
     .material-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .material-table{margin-top:18px;overflow:auto;border:1px solid var(--line);border-radius:22px;background:var(--card)}
+    .material-table table{width:100%;border-collapse:collapse;min-width:860px}
+    .material-table th,.material-table td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);font-size:12px;line-height:1.55}
+    .material-table th{color:var(--subtle);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+    .material-table tr:last-child td{border-bottom:0}
+    .status{display:inline-block;margin-top:5px;padding:3px 7px;border-radius:999px;background:var(--bg);color:var(--subtle);font-size:10px;font-weight:700}
+    .status.confirmed{background:var(--goodbg);color:var(--good)}
+    .status.indirect{background:#f4f0ff;color:#584b91}
     .layers{margin-top:18px;border-top:1px solid var(--line)}
     .layer{display:grid;grid-template-columns:95px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
     .layer:last-child{border-bottom:0}
@@ -183,6 +191,64 @@
       <h2>材质结构</h2>
       <p class="lead">Apple 对 Series 12 公布了表壳、正面表镜和表背的材质，但没有公布白色陶瓷表壳的完整化学配方。</p>
 
+      <div class="material-table">
+        <table>
+          <thead>
+            <tr><th>项目</th><th>钛金属 Series 12</th><th>珍珠白陶瓷 Series 12</th><th>证据怎么读</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>正面表镜</strong></td>
+              <td>蓝宝石晶体</td>
+              <td>蓝宝石晶体</td>
+              <td>Series 12 技术规格直接写明 Sapphire front crystal。<br><span class="status confirmed">Series 12 已确认</span></td>
+            </tr>
+            <tr>
+              <td><strong>表壳主体</strong></td>
+              <td>钛金属；Apple 环境资料写明表壳使用 100% 再生钛。</td>
+              <td>Apple 只写 Ceramic case / 陶瓷表壳，没有公开 Series 12 的化学配方。</td>
+              <td>陶瓷不能直接写成“氧化锆”或“氧化锆合金”。<br><span class="status confirmed">Series 12 已确认边界</span></td>
+            </tr>
+            <tr>
+              <td><strong>表背</strong></td>
+              <td>钛金属表背</td>
+              <td>陶瓷表背</td>
+              <td>Apple Support 对 Series 12 分别写 titanium back / ceramic back。<br><span class="status confirmed">Series 12 已确认</span></td>
+            </tr>
+            <tr>
+              <td><strong>白色陶瓷历史配方</strong></td>
+              <td>—</td>
+              <td>Apple 过去的白色陶瓷 Watch Edition：高强度氧化锆粉末 + 氧化铝，压制、烧结、金刚石浆料抛光。</td>
+              <td>这是 Apple 自己过去公开的白色精密陶瓷工艺，但不能自动等同于 Series 12。<br><span class="status indirect">历史 Apple 证据</span></td>
+            </tr>
+            <tr>
+              <td><strong>最接近的 Apple 专利路线</strong></td>
+              <td>—</td>
+              <td>氧化锆基工程陶瓷；专利实施范围可含 2–4 mol% 氧化钇、最高 20 wt% 氧化铝，断裂韧性约 4–6 MPa·√m。</td>
+              <td>专利权利要求直接覆盖 electronic watch，但不证明 Series 12 使用了这套精确配方。<br><span class="status indirect">Apple 专利证据</span></td>
+            </tr>
+            <tr>
+              <td><strong>42mm 重量</strong></td>
+              <td>36.5g</td>
+              <td>41.7g</td>
+              <td>珍珠白陶瓷多 5.2g。<br><span class="status confirmed">Series 12 已确认</span></td>
+            </tr>
+            <tr>
+              <td><strong>46mm 重量</strong></td>
+              <td>44.9g</td>
+              <td>51.3g</td>
+              <td>珍珠白陶瓷多 6.4g。<br><span class="status confirmed">Series 12 已确认</span></td>
+            </tr>
+            <tr>
+              <td><strong>耐刮 / 抗摔</strong></td>
+              <td>金属通常更能通过塑性变形吸收冲击；表面更容易留下划痕或磕痕。</td>
+              <td>陶瓷表面更硬、更耐刮；如果是稳定氧化锆路线，会通过相变增韧阻碍裂纹扩展，但仍属于脆性材料，尖锐冲击下可能崩边或开裂。</td>
+              <td>这是材料学性质，不是 Apple 对 Series 12 的跌落等级。Apple 没有公布陶瓷版的官方跌落测试数据。<br><span class="status indirect">材料学解释</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <div class="material-grid">
         <article class="material-block">
           <div class="mini">Series 12 钛金属</div>
@@ -206,8 +272,8 @@
       </div>
 
       <div class="evidence-note">
-        <strong>氧化锆从哪里来的？</strong><br>
-        Apple 的专利资料确实公开过用于电子手表和电子设备外壳的“氧化锆基陶瓷”路线，包括部分稳定氧化锆、氧化铝增韧氧化锆，以及约 1.5–2.5 mol% 氧化钇的氧化锆配方。它能证明 Apple 做过并申请过这类陶瓷技术，但不能证明 Series 12 珍珠白陶瓷就是其中某一种具体配方。Series 12 的 2026 产品环境报告还明确排除了陶瓷表壳版本，因此目前没有 Apple 产品级公开文件把这只表直接写成“某某氧化锆配方”。
+        <strong>为什么这种“精密陶瓷”不像瓷碗？</strong><br>
+        Apple 过去对白色陶瓷 Watch Edition 的公开说明是：高强度氧化锆粉末与氧化铝混合，压制成型后烧结，再用金刚石浆料抛光。Apple 的后续手表相关专利还给出过氧化锆基陶瓷的具体工程范围：2–4 mol% 氧化钇、最高 20 wt% 氧化铝，断裂韧性约 4–6 MPa·√m。稳定氧化锆受到裂纹尖端应力时，可以发生四方相到单斜相的局部转变并产生体积膨胀，在裂纹周围形成压应力，阻碍裂纹继续扩展。这叫相变增韧。它仍然是脆性材料，所以并不是“摔不碎”；更准确地说，它比普通家用陶瓷更适合作为高强度结构件，同时比金属更怕尖锐冲击。Series 12 本身没有公开化学配方，因此这段只解释 Apple 已公开的陶瓷技术路线，不把专利配方直接写成 Series 12 配方。
       </div>
     </section>
 
@@ -247,7 +313,9 @@
           <li><a href="https://www.apple.com/apple-watch-series-12/specs/" target="_blank" rel="noreferrer">Apple Series 12 技术规格</a>：尺寸、重量、Sapphire front crystal 和表壳材质。</li>
           <li><a href="https://support.apple.com/en-by/118234" target="_blank" rel="noreferrer">Apple Support · Wearing your Apple Watch</a>：Series 12 钛金属版为 titanium back，陶瓷版为 ceramic back。</li>
           <li><a href="https://www.apple.com/in/environment/pdf/products/watch/Apple_Watch_Series_12_PER_Sept2026.pdf" target="_blank" rel="noreferrer">Apple Series 12 产品环境报告</a>：钛金属表壳材料与再生材料说明；报告明确排除陶瓷表壳版本。</li>
-          <li><a href="https://patents.google.com/patent/US20220256720A1/en" target="_blank" rel="noreferrer">Apple Inc. 氧化锆基陶瓷专利</a> 与 <a href="https://patents.justia.com/patent/20190364674" target="_blank" rel="noreferrer">氧化钇稳定/敏化氧化锆专利</a>：仅用于说明 Apple 已公开的陶瓷技术路线，不作为 Series 12 配方证明。</li>
+          <li><a href="https://www.apple.com/newsroom/2016/09/apple-introduces-apple-watch-series-2/" target="_blank" rel="noreferrer">Apple 2016 白色陶瓷 Watch Edition 资料</a>：Apple 官方将其描述为极耐刮的白色陶瓷；当年的材料工艺说明进一步公开了高强度氧化锆粉末 + 氧化铝、压制、烧结和金刚石浆料抛光。</li>
+          <li><a href="https://patents.google.com/patent/US20220256720A1/en" target="_blank" rel="noreferrer">Apple Inc. 氧化锆基陶瓷专利</a>：电子手表权利要求包含 2–4 mol% 氧化钇、最高 20 wt% 氧化铝，以及 4–6 MPa·√m 断裂韧性范围；只作为 Apple 技术路线证据，不作为 Series 12 配方证明。</li>
+          <li><a href="https://www.sciencedirect.com/science/article/pii/S0254058420300754" target="_blank" rel="noreferrer">氧化钇稳定氧化锆材料研究</a>：用于解释四方相 → 单斜相的相变增韧与裂纹抑制机制。</li>
           <li><a href="https://wise.com/zh-cn/currency-converter/hkd-to-cny-rate/history" target="_blank" rel="noreferrer">Wise HKD/CNY</a> 与 <a href="https://wise.com/zh-cn/currency-converter/usd-to-cny-rate/history" target="_blank" rel="noreferrer">Wise USD/CNY</a>：2026-09-18 中间市场汇率。</li>
         </ul>
         <div class="stamp">价格、教育资格、库存和汇率会变化。最终以下单页面为准。</div>
