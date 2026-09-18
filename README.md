@@ -1,6 +1,8 @@
 # Apple Watch Series 12 · 中港美购买对比
 
-一个专门用于比较 Apple Watch Series 12 在中国大陆、香港、美国购买价格的单页工具。\n\n**在线页面：** https://apple-watch-series-12-price-compare.vercel.app
+一个专门用于比较 Apple Watch Series 12 在中国大陆、香港、美国购买价格的单页工具。
+
+**在线页面：** https://apple-watch-series-12-price-compare.vercel.app
 
 ## 这个页面解决什么问题
 
