@@ -55,14 +55,14 @@ footer{padding:32px 0 70px;color:var(--sub);font-size:11px;line-height:1.6}
 <section><h2>所有当前档位</h2><div class="matrix panel"><table><thead><tr><th>芯片档</th><th>CPU</th><th>GPU</th><th>内存带宽</th><th>可用内存档</th><th>媒体编码</th><th>外接屏</th><th>I/O</th></tr></thead><tbody id="allRows"></tbody></table></div></section>
 
 <section><h2>M6 要不要等</h2><div class="grid2"><div class="card"><h3>已经知道的 M6</h3><p>M6 是 Apple 首款 2nm Mac 芯片，当前在 Mac mini 上是 12 核 CPU / 12 核 GPU、双 16 核 Neural Engine，最高 170GB/s。</p></div><div class="card"><h3>还不知道的 MacBook Pro M6</h3><p>截至今天 Apple 没有宣布这款机器，因此机身、散热、续航、价格、是否有 M6 Pro/Max、何时上市都不能当作已知条件。</p></div></div></section>
-</main><footer class="wrap">香港教育起价锚点：14" M5 HK$12,699；14" M5 Pro HK$16,799；14" M5 Max HK$25,699；16" M5 Pro HK$20,399；16" M5 Max HK$28,599。</footer>
+</main><footer class="wrap">当前香港教育商店整个 MacBook Pro 产品线从 HK$15,199 起。Pro / Max 精确价随核心、内存与 SSD 自订组合变化；页面不把 3 月首发价当作今天结账价。</footer>
 <script>
 (()=>{
 const chips={
- m5:{name:"M5 · 10/10",family:"M5",cpu:10,gpu:10,bw:153,mem:"16 / 24 / 32GB",memMax:32,media:1,displays:2,tb:"TB4",battery14:24,price14:12699,price16:null,legal14:true,legal16:false,note:"基础芯片"},
- p15:{name:"M5 Pro · 15/16",family:"M5 Pro",cpu:15,gpu:16,bw:307,mem:"24 / 48GB",memMax:48,media:1,displays:3,tb:"TB5",battery14:22,price14:16799,price16:null,legal14:true,legal16:false,note:"Pro 入门档"},
- p18:{name:"M5 Pro · 18/20",family:"M5 Pro",cpu:18,gpu:20,bw:307,mem:"24 / 48 / 64GB",memMax:64,media:1,displays:3,tb:"TB5",battery14:22,battery16:24,price14:null,price16:20399,legal14:true,legal16:true,note:"Pro 满血档"},
- x32:{name:"M5 Max · 18/32",family:"M5 Max",cpu:18,gpu:32,bw:460,mem:"36GB",memMax:36,media:2,displays:4,tb:"TB5",battery14:20,battery16:22,price14:25699,price16:28599,legal14:true,legal16:true,note:"Max 32 GPU"},
+ m5:{name:"M5 · 10/10",family:"M5",cpu:10,gpu:10,bw:153,mem:"16 / 24 / 32GB",memMax:32,media:1,displays:2,tb:"TB4",battery14:24,price14:15199,price16:null,legal14:true,legal16:false,note:"基础芯片"},
+ p15:{name:"M5 Pro · 15/16",family:"M5 Pro",cpu:15,gpu:16,bw:307,mem:"24 / 48GB",memMax:48,media:1,displays:3,tb:"TB5",battery14:22,price14:null,price16:null,legal14:true,legal16:false,note:"Pro 入门档"},
+ p18:{name:"M5 Pro · 18/20",family:"M5 Pro",cpu:18,gpu:20,bw:307,mem:"24 / 48 / 64GB",memMax:64,media:1,displays:3,tb:"TB5",battery14:22,battery16:24,price14:null,price16:null,legal14:true,legal16:true,note:"Pro 满血档"},
+ x32:{name:"M5 Max · 18/32",family:"M5 Max",cpu:18,gpu:32,bw:460,mem:"36GB",memMax:36,media:2,displays:4,tb:"TB5",battery14:20,battery16:22,price14:null,price16:null,legal14:true,legal16:true,note:"Max 32 GPU"},
  x40:{name:"M5 Max · 18/40",family:"M5 Max",cpu:18,gpu:40,bw:614,mem:"48 / 64 / 128GB",memMax:128,media:2,displays:4,tb:"TB5",battery14:20,battery16:22,price14:null,price16:null,legal14:true,legal16:true,note:"Max 40 GPU"}
 };
 let size=14;
