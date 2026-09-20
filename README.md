@@ -6,7 +6,7 @@
 
 - Apple Watch Series 12：/watch/
 - iPhone 18 Pro Max 256GB：/iphone/
-- MacBook Pro / Mac mini：/mac/
+- Mac 交互选择工具：/mac/\n  - MacBook Pro 芯片选择：/mac/macbook-pro/\n  - Mac mini 芯片选择：/mac/mac-mini/\n  - SSD 容量与速度：/mac/storage/
 
 ## 页面范围
 
