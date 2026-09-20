@@ -1,0 +1,58 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mac mini 芯片选择｜M6 vs M5 Pro</title><style>
+:root{--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--muted:#626268;--sub:#7a7a81;--line:#d9d9de;--accent:#06c;--good:#176c39;--goodbg:#edf8f1;--warn:#8b5c00;--warnbg:#fff7e8;--shadow:0 18px 50px rgba(0,0,0,.06)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}button,select,input{font:inherit}
+.wrap{max-width:1160px;margin:auto;padding:0 24px}.top{position:sticky;top:0;z-index:30;background:rgba(245,245,247,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.08)}.top .wrap{height:54px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-size:14px;font-weight:760}.nav{display:flex;gap:16px;font-size:12px;white-space:nowrap}
+.hero{padding:76px 0 36px}.hero h1{font-size:clamp(44px,7vw,76px);line-height:1;letter-spacing:-.055em;margin:0 0 20px;max-width:980px}.hero p{max-width:850px;margin:0;color:var(--muted);font-size:18px;line-height:1.65}
+section{padding:32px 0}h2{font-size:32px;letter-spacing:-.045em;margin:0 0 8px}.lead{color:var(--muted);margin:0 0 20px;line-height:1.65;max-width:860px}.panel{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
+.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:11px;color:var(--muted)}
+.tabs{display:flex;gap:7px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:var(--card);color:var(--muted);padding:9px 13px;border-radius:12px;cursor:pointer;font-weight:700}.tabs button.active{background:var(--text);color:#fff;border-color:var(--text)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:22px;padding:20px;background:var(--card);min-width:0}.card h3{font-size:21px;margin:0 0 7px;letter-spacing:-.03em}.card p{color:var(--muted);font-size:12px;line-height:1.55;margin:0}
+.kpi{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:12px}.kpi:first-of-type{margin-top:14px}.kpi span{color:var(--muted)}.kpi strong{text-align:right}
+.bar{height:9px;border-radius:999px;background:#e8e8ed;overflow:hidden}.bar>i{display:block;height:100%;border-radius:inherit;background:#777b86}.axis{display:grid;grid-template-columns:120px 1fr 74px;gap:10px;align-items:center;margin:11px 0;font-size:11px}.axis b{text-align:right}
+.callout{padding:18px 20px;border-radius:20px;background:#111113;color:#fff}.callout strong{font-size:23px}.callout p{margin:6px 0 0;color:#d1d1d6;font-size:12px;line-height:1.6}
+.note{padding:15px 17px;border-radius:18px;background:var(--warnbg);color:var(--warn);font-size:12px;line-height:1.65}
+.good{padding:15px 17px;border-radius:18px;background:var(--goodbg);color:var(--good);font-size:12px;line-height:1.65}
+.matrix{overflow:auto}.matrix table{width:100%;border-collapse:collapse;min-width:820px}.matrix th,.matrix td{padding:12px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:11px;line-height:1.55}.matrix th{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:.04em}
+.controlset{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.check{border:1px solid var(--line);border-radius:16px;padding:13px;display:flex;gap:10px;align-items:flex-start;background:var(--card);cursor:pointer}.check input{margin-top:3px}.check strong{display:block;font-size:12px}.check span{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin-top:3px}
+.delta{display:grid;grid-template-columns:1fr 1fr;gap:16px}.delta .side{padding:18px;border:1px solid var(--line);border-radius:20px}.delta h3{margin:0 0 5px}.delta .big{font-size:30px;font-weight:780;letter-spacing:-.04em}
+footer{padding:32px 0 70px;color:var(--sub);font-size:11px;line-height:1.6}
+@media(max-width:820px){.nav{display:none}.grid2,.grid3,.controlset,.delta{grid-template-columns:1fr}.panel{padding:17px}.hero{padding-top:58px}.axis{grid-template-columns:92px 1fr 66px}}
+@media(prefers-color-scheme:dark){:root{--bg:#0f0f11;--card:#1c1c1f;--text:#f5f5f7;--muted:#c7c7cc;--sub:#a9a9b0;--line:#3b3b42;--accent:#69aaff;--good:#80dca4;--goodbg:#163725;--warn:#e7c77d;--warnbg:#2b2417;--shadow:none}.top{background:rgba(15,15,17,.9)}.panel,.card,.check,.delta .side{border-color:#303037}.bar{background:#2d2d32}.tabs button.active{background:#f5f5f7;color:#111;border-color:#f5f5f7}}
+
+.chipgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.chipcard{border:1px solid var(--line);border-radius:22px;padding:20px}.chipcard.selected{outline:2px solid var(--text)}.chipcard button{width:100%;margin-top:14px;border:1px solid var(--line);border-radius:11px;padding:9px;background:var(--card);color:var(--text);cursor:pointer;font-weight:700}.schem{display:flex;gap:5px;align-items:flex-end;height:66px;margin:15px 0}.schem i{display:block;background:#d7d9df;border-radius:7px 7px 3px 3px}.schem .cpu{width:42%;height:55%}.schem .gpu{width:58%;height:75%}.pro .cpu{height:72%}.pro .gpu{height:100%}@media(max-width:820px){.chipgrid{grid-template-columns:1fr}}@media(prefers-color-scheme:dark){.schem i{background:#34343b}}
+</style></head><body>
+<header class="top"><div class="wrap"><div class="brand">Mac mini 芯片选择</div><nav class="nav"><a href="/mac/">Mac 首页</a><a href="/mac/macbook-pro/">MacBook Pro</a><a href="/mac/storage/">SSD</a></nav></div></header>
+<main class="wrap">
+<section class="hero"><h1>Mac mini：M6 还是 M5 Pro</h1><p>这是“新一代基础芯片”对“上一代专业级宽芯片”的比较。M6 更新、单核和 AI 单元更先进；M5 Pro 则直接把 CPU/GPU 宽度、内存带宽、内存上限和 Thunderbolt 拉高。</p></section>
+
+<section><h2>三个当前档位</h2><div class="chipgrid" id="chipGrid">
+<div class="chipcard selected" data-key="m6"><h3>M6 · 12/12</h3><p>新一代 2nm 基础芯片</p><div class="schem"><i class="cpu"></i><i class="gpu"></i></div><div class="kpi"><span>带宽</span><strong>153–170 GB/s</strong></div><div class="kpi"><span>内存</span><strong>最高 32GB</strong></div><div class="kpi"><span>接口</span><strong>Thunderbolt 4</strong></div><div class="kpi"><span>香港教育价</span><strong>HK$6,499 起</strong></div><button type="button">作为 A</button></div>
+<div class="chipcard pro" data-key="p15"><h3>M5 Pro · 15/16</h3><p>Pro 入门档</p><div class="schem"><i class="cpu"></i><i class="gpu"></i></div><div class="kpi"><span>带宽</span><strong>307 GB/s</strong></div><div class="kpi"><span>内存</span><strong>24 / 48 / 64GB*</strong></div><div class="kpi"><span>接口</span><strong>Thunderbolt 5</strong></div><div class="kpi"><span>香港教育价</span><strong>HK$13,199 起</strong></div><button type="button">作为 A</button></div>
+<div class="chipcard pro" data-key="p18"><h3>M5 Pro · 18/20</h3><p>Pro 满血档</p><div class="schem"><i class="cpu"></i><i class="gpu"></i></div><div class="kpi"><span>带宽</span><strong>307 GB/s</strong></div><div class="kpi"><span>内存</span><strong>最高 64GB</strong></div><div class="kpi"><span>接口</span><strong>Thunderbolt 5</strong></div><div class="kpi"><span>价格</span><strong>自订配置</strong></div><button type="button">作为 A</button></div>
+</div><div class="note" style="margin-top:12px">* 具体内存档位与芯片配置绑定。这里强调的是：M6 最高 32GB；M5 Pro 可以继续到 48/64GB。</div></section>
+
+<section><h2>选两档看升级买到了什么</h2><div class="panel">
+<div class="grid2"><div><label>配置 A</label><select id="a" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text)"></select></div><div><label>配置 B</label><select id="b" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text)"></select></div></div>
+<div class="delta" style="margin-top:18px"><div class="side"><h3 id="na"></h3><div id="aa"></div></div><div class="side"><h3 id="nb"></h3><div id="ab"></div></div></div>
+<div class="callout" style="margin-top:16px"><strong id="dt"></strong><p id="dp"></p></div>
+</div></section>
+
+<section><h2>这两类芯片真正的分界</h2><div class="grid3">
+<div class="card"><h3>日常响应 / 单线程</h3><p>M6 是更新的 2nm 架构，并引入“超级核心”；如果工作主要靠单线程和短突发，不能只看 Pro 名字。独立实测要等 9 月 22 日正式发售后。</p></div>
+<div class="card"><h3>CPU / GPU 并行</h3><p>M5 Pro 从 15/16 起，满血为 18/20；如果编译、渲染、GPU 计算能持续并行，Pro 的“宽度”才会真正被用上。</p></div>
+<div class="card"><h3>本地 LLM</h3><p>很多本地 LLM 工具实际走 GPU / Metal。此时比 Neural Engine 名字更重要的常常是：模型能不能装进统一内存，以及 170 vs 307GB/s 的带宽。</p></div>
+<div class="card"><h3>外接高速设备</h3><p>M6 是 Thunderbolt 4（40Gb/s）；M5 Pro 是 Thunderbolt 5（最高 120Gb/s）。高速阵列、采集卡和扩展坞会直接感受到。</p></div>
+<div class="card"><h3>显示器</h3><p>两者都支持最多三台外接显示器，所以“我要三屏”本身不足以推你上 Pro；分辨率组合和单口能力才是下一层差异。</p></div>
+<div class="card"><h3>价格</h3><p>香港教育价 M6 HK$6,499 起、M5 Pro HK$13,199 起，几乎是两倍。网页要问的是你是否真的会用到 Pro 多出来的资源。</p></div>
+</div></section>
+
+<section><h2>M6 现在的证据边界</h2><div class="note">M6 Mac mini 已发布、正在预购，9 月 22 日才正式交付。因此这里对 M6 的 CPU/GPU/带宽/显示器/接口使用 Apple 官方规格，不把尚未形成共识的首批跑分当成购买结论。</div></section>
+</main><footer class="wrap">Mac mini M6：12 核 CPU / 12 核 GPU、153–170GB/s、最高 32GB；M5 Pro：15/16 或 18/20、307GB/s、最高 64GB。</footer>
+<script>
+(()=>{const d={m6:{n:"M6 · 12/12",cpu:12,gpu:12,bw:170,mem:32,tb:40,ne:"双 16 核",price:"HK$6,499 起"},p15:{n:"M5 Pro · 15/16",cpu:15,gpu:16,bw:307,mem:64,tb:120,ne:"16 核",price:"HK$13,199 起"},p18:{n:"M5 Pro · 18/20",cpu:18,gpu:20,bw:307,mem:64,tb:120,ne:"16 核",price:"自订配置"}};
+const a=document.getElementById("a"),b=document.getElementById("b");const opts=Object.entries(d).map(([k,v])=>'<option value="'+k+'">'+v.n+'</option>').join("");a.innerHTML=opts;b.innerHTML=opts;a.value="m6";b.value="p15";
+function axes(x){return [["CPU",x.cpu,18],["GPU",x.gpu,20],["内存带宽",x.bw,307],["内存上限",x.mem,64]].map(v=>'<div class="axis"><span>'+v[0]+'</span><div class="bar"><i style="width:'+Math.round(v[1]/v[2]*100)+'%"></i></div><b>'+v[1]+(v[0].includes("带宽")?" GB/s":v[0].includes("内存")?" GB":"")+'</b></div>').join("")+'<div class="kpi"><span>Thunderbolt 峰值</span><strong>'+x.tb+'Gb/s</strong></div><div class="kpi"><span>Neural Engine</span><strong>'+x.ne+'</strong></div><div class="kpi"><span>香港教育价</span><strong>'+x.price+'</strong></div>'}
+function render(){const x=d[a.value],y=d[b.value];document.getElementById("na").textContent=x.n;document.getElementById("nb").textContent=y.n;document.getElementById("aa").innerHTML=axes(x);document.getElementById("ab").innerHTML=axes(y);const parts=[];parts.push("CPU "+x.cpu+"→"+y.cpu);parts.push("GPU "+x.gpu+"→"+y.gpu);parts.push("带宽 "+x.bw+"→"+y.bw+"GB/s");parts.push("内存上限 "+x.mem+"→"+y.mem+"GB");document.getElementById("dt").textContent=x.n+" → "+y.n;document.getElementById("dp").textContent=parts.join("；")+"。这不是“新一代 vs 老一代”的单轴比较，而是更新核心设计与更宽专业芯片之间的取舍。"}
+a.addEventListener("change",render);b.addEventListener("change",render);document.getElementById("chipGrid").addEventListener("click",e=>{const c=e.target.closest(".chipcard");if(!c||e.target.tagName!=="BUTTON")return;a.value=c.dataset.key;render()});render()})();
+</script></body></html>
