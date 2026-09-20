@@ -17,11 +17,11 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
 </style></head><body>
 <header class="top"><div class="wrap"><div class="brand">MacBook Pro vs Mac mini</div><nav class="nav"><a href="/">首页</a><a href="/watch/">Apple Watch</a><a href="/iphone/">iPhone</a></nav></div></header>
 <main class="wrap">
-<section class="hero"><h1>MacBook Pro 和 Mac mini</h1><p>先把一个容易误解的点说清楚：SSD 是存储介质，1TB 是容量。不是只有 1TB 才是 SSD。</p></section>
-<section><div class="truth"><strong>512GB、1TB、2TB 都可以是 SSD。</strong><p>Apple 官方技术规格写明，14 英寸 M5 MacBook Pro 有 512GB 或 1TB 固态硬盘，并可选 2TB/4TB；M6 Mac mini 也有 256GB、512GB、1TB 等 SSD 配置。</p></div>
+<section class="hero"><h1>MacBook Pro 和 Mac mini</h1><p>“1TB 才有高速缓存”这个说法不准确。真正可能随容量变化的是 NAND 并行度和持续读写速度，不是到了 1TB 才突然从“没有缓存”变成“有缓存”。</p></section>
+<section><div class="truth"><strong>1TB 不是“高速缓存开关”。</strong><p>容量更大的 SSD 有时会因为使用更多 NAND 芯片或更多并行通道而获得更高持续读写速度，但这和“只有 1TB 才有缓存”不是一回事。Apple 也没有公开一个“1TB 以下无缓存、1TB 以上有缓存”的规格。</p></div>
 <div class="panel"><table><thead><tr><th>设备</th><th>Apple 当前可见 SSD 容量</th><th>说明</th></tr></thead><tbody>
-<tr><td>14" MacBook Pro M5</td><td>512GB、1TB；可继续选 2TB / 4TB</td><td>512GB 本身就是 SSD，不需要升到 1TB 才“变成 SSD”。</td></tr>
-<tr><td>Mac mini M6</td><td>256GB、512GB、1TB 等</td><td>256GB 也是 SSD，只是容量更小。</td></tr>
+<tr><td>14" MacBook Pro M5</td><td>当前销售配置从 1TB 起；2025 年最初上市时曾有 512GB</td><td>早期 512GB M5 实测已经能达到约 6GB/s 级别，因此不存在“512GB 没高速存储能力、1TB 才有”的简单分界。</td></tr>
+<tr><td>Mac mini M6</td><td>256GB、512GB、1TB、2TB</td><td>Apple 只公布“最高 2 倍存储性能”；官方脚注使用 2TB SSD 测试。截至 2026-09-20，新机尚未正式开售，256/512/1TB 的独立测速还不足以确认速度分档。</td></tr>
 </tbody></table></div></section>
 <section><h2>教育价</h2><p class="lead">下面用各自当前教育商店的常见配置做地区价格参考；配置不同，所以不能只看总价判断哪台“更值”。</p><div class="panel"><div class="two">
 <article class="spec"><h3>14 英寸 MacBook Pro</h3><div class="config">M5 · 16GB 统一内存 · 1TB SSD · 标准显示屏</div>
@@ -35,10 +35,11 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
 <div class="line"><span>美国免税州教育价</span><strong>约 ¥5,350<br><small>$799</small></strong></div>
 </article>
 </div><div class="callout"><strong>Mac mini 的低价里，包含的是 256GB SSD；MacBook Pro 这组对比用的是 1TB SSD。</strong><p>如果要做更公平的机器价格比较，下一步应该把两边 SSD 容量拉到同一档，再比较芯片、内存、屏幕和接口。</p></div></div></section>
-<section><h2>怎么理解 1TB</h2><div class="panel"><table><thead><tr><th>词</th><th>意思</th></tr></thead><tbody>
-<tr><td>SSD</td><td>Solid State Drive，固态硬盘，是存储介质类型。</td></tr>
-<tr><td>512GB / 1TB / 2TB</td><td>容量。1TB 只是更大，不代表 512GB 不是 SSD。</td></tr>
-<tr><td>MacBook Pro 1TB</td><td>这只是当前教育价比较里选的一组配置，不是 SSD 的最低门槛。</td></tr>
+<section><h2>为什么大容量有时更快</h2><div class="panel"><table><thead><tr><th>概念</th><th>实际含义</th></tr></thead><tbody>
+<tr><td>NAND 并行</td><td>如果更大容量使用更多 NAND die / package，控制器可以同时读写更多芯片，顺序读写速度可能更高。这是 Apple 历代小容量 SSD 出现速度差异时更常见的原因。</td></tr>
+<tr><td>SLC 缓存</td><td>现代 NAND SSD 常把部分闪存暂时按更快的 SLC 模式写入，作为写入缓冲。Apple 没有公开当前 Mac 各容量的具体 SLC 缓存策略，所以不能把“1TB”当成官方缓存门槛。</td></tr>
+<tr><td>当前 M5 MacBook Pro</td><td>2026 年 3 月后，Apple 把标准 M5 MacBook Pro 也改成 1TB 起步。这是销售配置变化；此前的 512GB M5 版本已经有很高的 SSD 实测速度。</td></tr>
+<tr><td>M6 Mac mini</td><td>现在仍有 256GB / 512GB / 1TB / 2TB。真正该等的是各容量的同机型实测，而不是根据“1TB”这个数字猜缓存结构。</td></tr>
 </tbody></table></div></section>
-</main><footer class="wrap">MacBook Pro 512GB SSD 规格来自 Apple 官方技术规格；Mac mini 256GB / 512GB / 1TB 配置来自 Apple 当前购买页。价格与配置会变化。</footer>
+</main><footer class="wrap">当前 MacBook Pro 已调整为 1TB 起步；历史 512GB M5 的高速实测用于说明“1TB 才有高速缓存”并不成立。M6 Mac mini 各容量实际速度仍待正式发售后的同机型测试。</footer>
 </body></html>
