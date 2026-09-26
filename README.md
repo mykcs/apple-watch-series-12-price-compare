@@ -33,3 +33,8 @@
 - 1 USD ≈ 6.7114 CNY
 
 最终价格、库存、教育资格与汇率以下单页面为准。
+
+
+## 开发与 CI
+
+开发方向、轻量价格逻辑检查与 Vercel 分工见 [`docs/dev/README.md`](docs/dev/README.md)。
