@@ -1,6 +1,6 @@
 # CI Passport
 
-Status: **candidate — lightweight public logic gate**
+Status: **active — lightweight required PR gate**
 
 Repository: `mykcs/apple-watch-series-12-price-compare`  
 Integration branch: `main`  
@@ -15,5 +15,6 @@ CI mode: `STANDARD_CI`
 - required external services: none
 - secrets: none
 - deployment side effects: none
+- required main check: `Price and route validation` (GitHub Actions, integration ID `15368`; strict ruleset `24133819`)
 
-The pull-request workflow checks out the exact PR head SHA before validation. Before making the check required, obtain a successful hosted run for that raw candidate commit. Vercel remains independent deployment evidence.
+The pull-request workflow checks out the exact PR head SHA before validation. The required check is bound to the GitHub Actions app and blocks stale candidates when `main` advances. Vercel remains independent deployment evidence.
