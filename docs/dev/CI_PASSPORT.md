@@ -16,4 +16,4 @@ CI mode: `STANDARD_CI`
 - secrets: none
 - deployment side effects: none
 
-Before making the check required, obtain a successful exact-head PR run. Vercel remains independent deployment evidence.
+The pull-request workflow checks out the exact PR head SHA before validation. Before making the check required, obtain a successful hosted run for that raw candidate commit. Vercel remains independent deployment evidence.
