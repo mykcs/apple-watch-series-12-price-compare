@@ -25,6 +25,25 @@ footer{padding:32px 0 70px;color:var(--sub);font-size:11px;line-height:1.6}
 <header class="top"><div class="wrap"><div class="brand">Mac mini 芯片选择</div><nav class="nav"><a href="/mac/">Mac 首页</a><a href="/mac/macbook-pro/">MacBook Pro</a><a href="/mac/storage/">SSD</a></nav></div></header>
 <main class="wrap">
 <section class="hero"><h1>Mac mini：M6 还是 M5 Pro</h1><p>这是“新一代基础芯片”对“上一代专业级宽芯片”的比较。M6 更新、单核和 AI 单元更先进；M5 Pro 则直接把 CPU/GPU 宽度、内存带宽、内存上限和 Thunderbolt 拉高。</p></section>
+<section><h2>先解决：Passkey 会不会让 Mac mini 变麻烦？</h2><p class="lead">这是现在比 M6 / M5 Pro 更实际的问题：如果 iPhone 上的 ChatGPT 正在请求 GitHub 账号或任务权限，GitHub 要求 Passkey，Mac mini 本体没有内建 Touch ID，会不会给日常工作流增加摩擦？</p>
+<div class="good"><strong>当前结论：</strong>不会因为 Mac mini 本体没有指纹就卡住。最顺的路径是：如果授权从 iPhone 上的 ChatGPT 发起，就让 GitHub 登录也在 iPhone 上完成，直接用 Face ID；如果登录页真的开在 Mac mini，本地可以使用带 Touch ID 的妙控键盘，或者选择“附近设备上的 Passkey”，用 iPhone 扫二维码后再 Face ID。</div>
+<div class="grid3" style="margin-top:14px">
+<div class="card"><h3>场景 1 · iPhone 上发起</h3><p>优先让授权留在 iPhone：ChatGPT → GitHub 登录 → Passkey → Face ID。这样 Mac mini 有没有指纹传感器基本不影响这次授权。</p></div>
+<div class="card"><h3>场景 2 · 人就在 Mac mini 前</h3><p>Apple silicon Mac 可以配带 Touch ID 的妙控键盘；也可以在 Mac 的 Passkey 界面选择附近设备，让 iPhone 扫二维码并用 Face ID 完成。</p></div>
+<div class="card"><h3>场景 3 · 远程 / 无人值守</h3><p>不要把“临时在远程 Mac mini 上弹一个需要人在场的 Passkey”设计成主工作流。认证动作尽量在你手里的 iPhone 或 MacBook 完成，远程 Mac mini 负责执行已经建立好的工作流。</p></div>
+</div>
+<div class="panel" style="margin-top:16px"><h3 style="margin-top:0">买 Mac mini 前还要回答的 4 个问题</h3>
+<div class="grid2">
+<div class="card"><h3>1. 我真的需要给 Mac mini 配 Touch ID 键盘吗？</h3><p>如果它长期放桌面、本地操作很多，Touch ID 键盘能减少摩擦；如果主要是远程机器，应该先看 iPhone / MacBook 完成授权是否已经足够。</p></div>
+<div class="card"><h3>2. GitHub Passkey 现在存在哪里？</h3><p>如果已经通过 iCloud 同步到 Apple 设备，iPhone 可以直接参与认证；这里要确认自己的 Passkey 提供方，而不是只看 Mac mini 有没有传感器。</p></div>
+<div class="card"><h3>3. ChatGPT 请求 GitHub 权限时，登录页实际开在哪？</h3><p>如果它在 iPhone 里打开，直接 Face ID 是最自然的路径；只有登录页真的出现在 Mac mini 上，Mac mini 的本地认证方式才成为问题。</p></div>
+<div class="card"><h3>4. Mac mini 会不会长期无人值守？</h3><p>如果会，购买判断里要单独记录“远程认证摩擦”。任何需要人在机器旁边摸传感器、扫附近二维码的流程，都不应该成为远程自动化的关键依赖。</p></div>
+</div></div>
+<div class="pills" style="margin-top:14px">
+<a class="pill" href="https://support.apple.com/guide/mac-mini/apd0e7983e19/mac" target="_blank" rel="noreferrer">Apple：Mac mini 与 Touch ID 妙控键盘</a>
+<a class="pill" href="https://support.apple.com/guide/passwords/mchl4af65d1a/mac" target="_blank" rel="noreferrer">Apple：Mac 上使用 Passkey / iPhone 扫码</a>
+<a class="pill" href="https://docs.github.com/en/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey" target="_blank" rel="noreferrer">GitHub：使用 Passkey 登录</a>
+</div></section>
 
 <section><h2>三个当前档位</h2><div class="chipgrid" id="chipGrid">
 <div class="chipcard selected" data-key="m6"><h3>M6 · 12/12</h3><p>新一代 2nm 基础芯片</p><div class="schem"><i class="cpu"></i><i class="gpu"></i></div><div class="kpi"><span>带宽</span><strong>153–170 GB/s</strong></div><div class="kpi"><span>内存</span><strong>最高 32GB</strong></div><div class="kpi"><span>接口</span><strong>Thunderbolt 4</strong></div><div class="kpi"><span>香港教育价</span><strong>HK$6,499 起</strong></div><button type="button">作为 A</button></div>
