@@ -23,7 +23,7 @@ Do not recursively read every page for a one-route edit.
 - Preserve route independence: a Watch-only edit should not rewrite iPhone/Mac pages unless the shared claim actually changes.
 - Keep product/configuration comparisons like-for-like. Do not compare different storage, case size, connectivity or tax assumptions without making the difference explicit.
 - Current/future Apple product facts are time-sensitive. Verify them before editing rather than relying on model memory.
-- Do not add Wish/Dev/Current folders merely for account-wide symmetry; this repository is small enough to use this router + README + source files.
+- This active long-lived repository keeps a thin Wish/Dev system for durable intent and development rationale. Keep it small: do not add a separate Current layer or duplicate time-sensitive Apple facts that already belong to README/source/live official Apple pages.
 - Historical values may remain when clearly dated; current purchase guidance must use current sources.
 
 ## Validation
