@@ -219,6 +219,11 @@ def validate_iphone_tradein_routes() -> None:
         'id="tf-stat-final"',
         'id="tf-stat-gift"',
         'id="tf-stat-quest"',
+        'id="tf-stat-care-topup"',
+        'id="tf-stat-alltopup"',
+        'id="tf-stat-postcare"',
+        "var carePrice=1799",
+        "var allTopup=topup+careTopup",
         'active="A"',
         'var charge=["A","C"].indexOf(active)>=0?',
         'var cashBefore=balance+(active==="E"?privateCash:0)',
@@ -253,6 +258,16 @@ def validate_iphone_tradein_routes() -> None:
     assert int(new_price * .015 * 100 + .5) == 17249
     assert int(net * .015 * 100 + .5) == 6749
     assert net < 10000 <= new_price
+    # Additional required two-year HK AppleCare+ (2026-10-10 official HK price).
+    care = 1799
+    # A/C: on-site net purchase HK$4,499 leaves HK$581; then HK$1,218 short.
+    assert care - (balance - net) == 1218
+    # B/F: after HK$7,000 arrives, cash remains HK$5,201 after care.
+    assert 7000 - care == 5201
+    # D: HK$7,000 Apple gift card is not cash; care needs HK$1,799 more.
+    assert 6419 + care == 8218
+    # E: HK$7,000 independent pre-sale leaves HK$581, then care shortfall HK$1,218.
+    assert care - (balance + sale - new_price) == 1218
 
 
 def main() -> int:
