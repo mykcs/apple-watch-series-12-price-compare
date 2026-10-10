@@ -165,7 +165,7 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
     <div class="tf-pin"><span>新机 · 官方价格快照</span><strong>HK$11,499</strong></div>
     <div class="tf-pin"><span>旧机 · 苹果预估折抵</span><strong>HK$7,000</strong></div>
   </div>
-  <div class="tf-assume">已固定模拟假设：<strong>实体店有现货</strong>；<strong>线上旧机交付不再视作障碍</strong>；对 ZA 而言，<strong>HK$11,499 全额交易在后续 Trade In 退款后仍保留抽奖参加资格</strong>。最后一项是用户要求的<strong>情景假设，并非银行承诺或中奖保证</strong>。</div>
+  <div class="tf-assume"><strong>必买的新机 AppleCare+：</strong> Apple 香港两年期标价 <strong>HK$1,799</strong>。下方假设先买手机，然后在 60 天内另行购买保障；同时计算两项都买齐时，需要换入多少港币。<br>已固定模拟假设：<strong>实体店有现货</strong>；<strong>线上旧机交付不再视作障碍</strong>；对 ZA 而言，<strong>HK$11,499 全额交易在后续 Trade In 退款后仍保留抽奖参加资格</strong>。最后一项是用户要求的<strong>情景假设，并非银行承诺或中奖保证</strong>。</div>
   <div class="tf-head"><small>🎮 起点：已有 HK$5,080，要买 HK$11,499 的新 iPhone</small><strong>先处理旧机？还是先买新机？</strong></div>
   <div class="tf-stem"></div><div class="tf-fork" aria-hidden="true"></div>
   <div class="tf-trunks">
@@ -195,6 +195,9 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
       <div class="tf-stat"><small>待取得 Apple 礼品卡</small><strong id="tf-stat-gift">HK$0</strong></div>
       <div class="tf-stat"><small>常规 StockBack 标称等值</small><strong id="tf-stat-cashback">HK$67.49</strong></div>
       <div class="tf-stat"><small>ZA 满 HK$10,000 抽奖</small><strong id="tf-stat-quest">不达标</strong></div>
+      <div class="tf-stat"><small>之后买 AppleCare+ 时仍需补</small><strong id="tf-stat-care-topup">HK$1,218</strong></div>
+      <div class="tf-stat"><small>总需换入港币（含保障）</small><strong id="tf-stat-alltopup">HK$1,218</strong></div>
+      <div class="tf-stat"><small>手机＋保障后的账户现金</small><strong id="tf-stat-postcare">HK$0</strong></div>
     </div>
   </div>
   <div class="tf-stepgrid">
@@ -209,7 +212,7 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
   </div>
   <div class="tf-notice">
     <strong style="color:#f9fdff">资金与奖励的不同：</strong>「港币账户」是现金；「Apple 礼品卡」只能在合资格 Apple 消费使用，不是现金；「1.5% StockBack」是股票初始等值，并非结账时减价；「最高 HK$21,999」只是抽奖最高奖品。
-    <div style="margin-top:10px">你还会另外购买<strong>新机 AppleCare+</strong>；它的价格尚未纳入以上付款数字。旧机中国大陆 AppleCare+ 的剩余保费退款也属于独立流程。</div>
+    <div style="margin-top:10px">你确定会买的<strong>两年新机 AppleCare+ 为 HK$1,799</strong>（<a href="https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro/6.9-inch-display-256gb-black" target="_blank" rel="noopener noreferrer">Apple 香港官方购买页</a>）。上方按<strong>之后独立付款</strong>计算；如果 Apple Trade In 退款／独立售机款未能在 60 天加购期限前到账，需要自行提前准备 HK$1,799。旧机中国大陆 AppleCare+ 的剩余保费退款仍单独处理。</div>
     <div style="margin-top:10px">官方核验：<a href="https://www.apple.com/hk-zh/shop/trade-in" target="_blank" rel="noopener noreferrer">Apple Trade In</a> · <a href="https://www.apple.com/hk/shop/help/payments" target="_blank" rel="noopener noreferrer">礼品卡+银行卡混合付款</a> · <a href="https://www.apple.com/hk/en/legal/giftcards/applestore/hk-en/" target="_blank" rel="noopener noreferrer">礼品卡可能不适用于新发售／供应紧张产品</a>。银行奖励的退款处理以 ZA 实际条款为准。</div>
   </div>
 </div>
@@ -237,7 +240,7 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
       <div class="tradein-card">
         <h3>香港新机的 AppleCare+</h3>
         <div class="figure">60 天内</div>
-        <div class="muted-small">在 Apple 香港购买新 iPhone 后 60 天内可另行加购 AppleCare+；通过新机「设置 → 通用 → AppleCare 与保修」查看实际加购选项和截止日。延后购买前不享有 AppleCare+ 的意外损坏保障。</div>
+        <div class="muted-small">在 Apple 香港购买新 iPhone 后 60 天内可另行加购 AppleCare+；该机两年期当前标价 HK$1,799；通过新机「设置 → 通用 → AppleCare 与保修」查看实际加购选项和截止日。延后购买前不享有 AppleCare+ 的意外损坏保障。</div>
       </div>
       <div class="tradein-card">
         <h3>旧机如何退 AppleCare+？</h3>
@@ -335,6 +338,10 @@ function scenario(){
  var futureCash=(active==="B"?apple:active==="F"?privateCash:0);
  var gift=(active==="D"?apple:0);
  var finalCash=cashAfterPay+futureCash;
+ var carePrice=1799;
+ var careTopup=Math.max(0,carePrice-finalCash);
+ var allTopup=topup+careTopup;
+ var cashAfterCare=finalCash+careTopup-carePrice;
  var normalReward=Math.round(charge*.015*100)/100;
  var raffle=charge>=10000;
  var config={
@@ -374,6 +381,9 @@ function scenario(){
  set("tf-stat-gift",money(gift));
  set("tf-stat-cashback",cents(normalReward));
  set("tf-stat-quest",raffle?"模拟达门槛":"不达门槛");
+ set("tf-stat-care-topup",money(careTopup));
+ set("tf-stat-alltopup",money(allTopup));
+ set("tf-stat-postcare",money(cashAfterCare));
  set("tf-step-title-1",config[2]);set("tf-step-desc-1",config[3]);
  set("tf-step-title-2",config[4]);set("tf-step-desc-2",config[5]);
  set("tf-step-title-3",config[6]);set("tf-step-desc-3",config[7]);
