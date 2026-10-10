@@ -202,6 +202,28 @@ def validate_iphone_payment() -> None:
         fail("iPhone HK expected difference drift")
 
 
+
+def validate_iphone_tradein_routes() -> None:
+    text = (ROOT / "iphone/index.html").read_text(encoding="utf-8")
+    for fragment in (
+        'id="trade-flow-simulator" data-new-price="11499"',
+        'name="trade-flow-route" value="store" checked',
+        'name="trade-flow-route" value="delivery"',
+        'name="trade-flow-route" value="pickup"',
+        'id="trade-flow-value"',
+        'id="trade-flow-stock"',
+        'id="trade-flow-bank-result"',
+        "function render()",
+        'stockEl.disabled=mode!=="store"',
+        "收到新机后 14 天内交付",
+        "到店取货本身并不节省垫资",
+        "iPhone 18 Pro Max 9 月 18 日起线上与实体店发售",
+    ):
+        require(text, fragment, "iPhone HK three-route Trade In simulator")
+    assert 11499 - 7000 == 4499
+    assert 11499 >= 10000 and 4499 < 10000
+
+
 def main() -> int:
     validate_routes()
     validate_rates()
@@ -209,6 +231,7 @@ def main() -> int:
     validate_iphone()
     validate_iphone_payment()
     validate_iphone_tradein_applecare()
+    validate_iphone_tradein_routes()
     print("PASS: static routes, fixed models, exchange rates and price deltas")
     return 0
 
