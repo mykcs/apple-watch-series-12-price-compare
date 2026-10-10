@@ -150,6 +150,25 @@ def validate_iphone() -> None:
 
 
 
+
+def validate_iphone_tradein_applecare() -> None:
+    text = (ROOT / "iphone/index.html").read_text(encoding="utf-8")
+    for fragment in (
+        'id="tradein-applecare"',
+        "HK$4,499",
+        "2027-09-28",
+        "353 / 730",
+        "60 天内",
+        "HK$172.49",
+        "以旧换新可能令之前的银行卡回赠计算失效",
+        "250909_applecareplusch.pdf",
+        "https://www.apple.com/hk/shop/trade-in",
+    ):
+        require(text, fragment, "iPhone HK trade-in / AppleCare")
+    assert 11499 - 7000 == 4499
+    assert abs(353 / 730 * 100 - 48.356) < .01
+
+
 def validate_iphone_payment() -> None:
     text = (ROOT / "iphone/index.html").read_text(encoding="utf-8")
     # Protect the dated Hong Kong payment decision without making live-bank claims in CI.
@@ -189,6 +208,7 @@ def main() -> int:
     validate_watch()
     validate_iphone()
     validate_iphone_payment()
+    validate_iphone_tradein_applecare()
     print("PASS: static routes, fixed models, exchange rates and price deltas")
     return 0
 

@@ -23,6 +23,17 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
 .state{font-size:11px;border-radius:999px;padding:3px 7px;border:1px solid var(--line);white-space:nowrap}.state.caution{color:#b56d06;border-color:#d9a751}
 .payment details{margin-top:13px;border:1px solid var(--line);border-radius:17px;background:var(--card);padding:16px 18px}.payment summary{font-weight:750;cursor:pointer;font-size:15px}.payment details p,.payment details li{font-size:13px;line-height:1.8;color:var(--muted)}.payment details ul{padding-left:20px}
 @media(max-width:780px){.payment-grid,.control-grid{grid-template-columns:1fr}.decision-line{align-items:flex-start;flex-direction:column}.payment-card .amount{font-size:32px}.ledger td:first-child{width:32%}.payment-card{padding:18px}}
+
+.tradein-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tradein-card{padding:20px;border-radius:20px;border:1px solid var(--line)}
+.tradein-card h3{font-size:17px;margin:0 0 8px}
+.tradein-card .figure{font-size:36px;letter-spacing:-.04em;font-weight:800;margin:10px 0}
+.tradein-card .muted-small{margin:8px 0}
+.tradein-warning{border-left:4px solid #c88a20;padding:15px 19px;margin-top:16px;background:var(--card);border-radius:9px;line-height:1.75}
+.tradein-warning strong{font-size:17px}
+.tradein-step{padding-left:22px;font-size:13px;line-height:1.8}
+.tradein-step li{margin:8px 0}
+@media(max-width:780px){.tradein-grid{grid-template-columns:1fr}.tradein-card .figure{font-size:31px}}
 </style></head><body>
 <header class="top"><div class="wrap"><div class="brand">iPhone 18 Pro Max · 256GB</div><nav class="nav"><a href="/">首页</a><a href="/watch/">Apple Watch</a><a href="/mac/">Mac</a></nav></div></header>
 <main class="wrap">
@@ -33,7 +44,7 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
   <h2 id="pay-title">买这部手机，哪张卡让你真正少花钱？</h2>
   <p class="lead">先比较<strong>自己最终承担的成本</strong>，而不是广告写的回赠比例。下面只看香港 Apple 直营渠道，手机原价 HK$11,499；网上付款与店内直接付款的差别可以切换。所有奖励都是事后回赠，不是结账直接立减。</p>
   <div class="decision-line">
-    <div><div class="eyebrow">当前默认情境 · ZA 股票价格不变、Chill 当月额度尚有 HK$150</div><strong id="pay-headline">自己用 ZA Card，比借朋友 Chill 少花 HK$74.49</strong></div>
+    <div><div class="eyebrow">当前默认情境 · 不以旧换新 · ZA 股票价格不变、Chill 当月额度尚有 HK$150</div><strong id="pay-headline">自己用 ZA Card，比借朋友 Chill 少花 HK$74.49</strong></div>
     <div class="muted-small">ZA 奖励你独享；朋友 Chill 卡的回赠价值你们一人一半。<br>不将抽奖奖品当成已到手的优惠。</div>
   </div>
   <div class="payment-grid">
@@ -89,6 +100,57 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
       <li>「全城有『机』用」任务和人工客服答复来自 2026-10-10 的 ZA App 内核验；<strong>未找到可独立查阅的专项活动完整公开条款</strong>。不公布任何卡号、私人聊天截图或账户资料。</li>
     </ul>
     <div class="muted-small"><a href="https://github.com/mykcs/apple-watch-series-12-price-compare/blob/main/docs/decisions/2026-10-10-iphone-hk-payment.md" target="_blank" rel="noopener noreferrer">查看完整研究快照与计算依据</a> · 证据快照：2026-10-10。此页是购买决策辅助，不提供银行卡实时额度查询、中奖保证或股票投资建议。事后奖励金额可能因兑换、汇率、股价及实际交易资格变化。</div>
+  </div>
+</section>
+
+
+<section id="tradein-applecare" aria-labelledby="tradein-heading">
+  <div class="eyebrow">折抵旧机与 AppleCare+ · 2026-10-10 新增情境</div>
+  <h2 id="tradein-heading">如果把内地版 iPhone 17 Pro Max 折抵掉？</h2>
+  <p class="lead">这是<strong>不同于上方全额刷卡</strong>的新情境。旧机仍有有效至 2027 年 9 月 28 日的中国大陆两年期 AppleCare+。以下以本人提供的 <strong>HK$7,000 折抵报价</strong>作假设，旧机的实际验收及最终报价以 Apple 为准。</p>
+  <div class="panel">
+    <div class="tradein-grid">
+      <div class="tradein-card">
+        <div class="eyebrow">香港新机 · 折抵后净成本</div>
+        <h3>iPhone 18 Pro Max 256GB</h3>
+        <div class="figure">HK$4,499</div>
+        <div class="muted-small">HK$11,499 原价 − HK$7,000 旧机折抵。不包括新 AppleCare+ 费用，也不提前扣除任何尚未确认的 ZA / Chill 回赠。</div>
+      </div>
+      <div class="tradein-card">
+        <div class="eyebrow">中国大陆旧机 · AppleCare+ 退款</div>
+        <h3>2027-09-28 到期的两年期计划</h3>
+        <div class="figure" style="color:var(--green)">约 48.36%</div>
+        <div class="muted-small">若计划从 2025-09-28 到 2027-09-28：截至 2026-10-10 剩约 353 / 730 天。依 2025 年 9 月适用合同第 9.4 条，固定期限计划可按剩余时间比例退款；若使用过有效维修等服务，可能扣除已获服务价值。退款属于<strong>独立的人民币计划退款</strong>，不在上述 HK$7,000 之内。</div>
+      </div>
+    </div>
+    <div class="tradein-warning">
+      <strong>注意：以旧换新可能令之前的银行卡回赠计算失效。</strong>
+      <p class="muted-small">香港 Apple 官网明确表示：线上付款的旧机折抵金额通常在验收后<strong>退回新机付款的原方式</strong>。如果先用 ZA Card 支付 HK$11,499，随后获退 HK$7,000，银行可能把它视为部分退款，重新核算 1.5% 股票回赠，甚至影响 ZA Quest 对「单笔电子产品消费满 HK$10,000」的任务判定。<strong>目前没有证据证明这笔换购交易仍可保有 HK$172.49 股票奖励或抽奖资格</strong>。如果真的选择折抵，必须就部分退款能否保留活动资格另行确认；不要套用上面的全额签账优惠。</p>
+    </div>
+    <div class="tradein-grid" style="margin-top:19px">
+      <div class="tradein-card">
+        <h3>香港新机的 AppleCare+</h3>
+        <div class="figure">60 天内</div>
+        <div class="muted-small">在 Apple 香港购买新 iPhone 后 60 天内可另行加购 AppleCare+；通过新机「设置 → 通用 → AppleCare 与保修」查看实际加购选项和截止日。延后购买前不享有 AppleCare+ 的意外损坏保障。</div>
+      </div>
+      <div class="tradein-card">
+        <h3>旧机如何退 AppleCare+？</h3>
+        <div class="figure" style="font-size:26px">独立申请</div>
+        <div class="muted-small">最好等香港旧机折抵验收完成，再向中国大陆 Apple / 原经销商办理取消。Apple 官方：400-666-8800 或 Apple 支持 App；准备计划编号、旧机序列号、原购买凭证。该版合同未保证两年期固定计划因香港折抵而自动取消，退款方式应由原销售方确认。</div>
+      </div>
+    </div>
+    <details><summary>正确办理顺序与官方证据</summary>
+      <ol class="tradein-step"><li>先取得 Apple HK 对旧机的实际验收报价；HK$7,000 仅为当前假设。</li>
+      <li>新机购买后再看是否需要 60 天内加购香港 AppleCare+；旧机 AppleCare+ 不能直接移到新机。</li>
+      <li>旧机折抵验收确认后，联系中国大陆原 AppleCare+ 销售方申请按比例退费，留存确认编号；不要依赖自动取消。</li>
+      <li>如要用 ZA Card 付款并争取 HK$10,000 消费任务，应事先问清 Apple 后续 HK$7,000 退款如何影响 StockBack 与 ZA Quest。</li></ol>
+      <ul class="source-list">
+      <li><a target="_blank" rel="noopener noreferrer" href="https://www.apple.com/hk/applecare/?filter=iphone">Apple 香港：新机 AppleCare+ 60 天内加购</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://www.apple.com/hk/shop/trade-in">Apple 香港：网上旧机折抵退回原付款方式，需验收</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://www.apple.com.cn/legal/sales-support/applecare/applecareplus/2509/250909_applecareplusch.pdf">Apple 中国大陆：2025-09-09 至 2025-10-14 适用 AppleCare+ 合同（第 9.4 条）</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://support.apple.com/zh-cn/118218">Apple 支持：如何取消两年期 AppleCare+</a></li>
+      </ul>
+    </details>
   </div>
 </section>
 
