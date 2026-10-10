@@ -149,11 +149,46 @@ def validate_iphone() -> None:
         require(text, fragment, "iPhone price logic")
 
 
+
+def validate_iphone_payment() -> None:
+    text = (ROOT / "iphone/index.html").read_text(encoding="utf-8")
+    # Protect the dated Hong Kong payment decision without making live-bank claims in CI.
+    for fragment in (
+        'id="hk-payment" class="payment" data-price="11499"',
+        'id="za-stock"',
+        'id="chill-reward"',
+        'id="chill-channel"',
+        'id="chill-left"',
+        'id="stock-change"',
+        'price*.015*(1+growth/100)',
+        'Math.min(150,left,round(price*.036))',
+        "HK$21,999 ≠ HK$21,999 立减",
+        "2026-10-10",
+        "https://bank.za.group/za-card",
+        "chill_offer_tnc_sc.pdf",
+    ):
+        require(text, fragment, "iPhone HK payment decision")
+
+    # Derived default figures: round monetary rewards to cents, then split Chill 50/50.
+    price_cents = 11499 * 100
+    za_reward_cents = int(11499 * 1.5 + 0.5)
+    chill_points_cents = int(11499 * 0.4 + 0.5)
+    chill_extra_cents = 150 * 100
+    chill_share_cents = (chill_points_cents + chill_extra_cents) // 2
+    if (za_reward_cents, chill_points_cents, chill_share_cents) != (17249, 4600, 9800):
+        fail("iPhone HK payment calculation drift")
+    if price_cents - za_reward_cents != 1132651 or price_cents - chill_share_cents != 1140100:
+        fail("iPhone HK personal net cost drift")
+    if (price_cents - chill_share_cents) - (price_cents - za_reward_cents) != 7449:
+        fail("iPhone HK expected difference drift")
+
+
 def main() -> int:
     validate_routes()
     validate_rates()
     validate_watch()
     validate_iphone()
+    validate_iphone_payment()
     print("PASS: static routes, fixed models, exchange rates and price deltas")
     return 0
 

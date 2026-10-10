@@ -12,10 +12,86 @@ table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:13px 14p
 footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
 @media(max-width:780px){.nav{display:none}.cards{grid-template-columns:1fr}.panel{padding:17px}.hero{padding-top:56px}}
 @media(prefers-color-scheme:dark){:root{--bg:#0f0f11;--card:#1c1c1f;--text:#f5f5f7;--muted:#c7c7cc;--sub:#a9a9b0;--line:#3b3b42;--blue:#69aaff;--green:#81dba5;--greenbg:#153523;--shadow:none}.top{background:rgba(15,15,17,.9)}.panel,.card{border-color:#303037}.card.best{background:#14291d}}
+
+/* 2026-10-10 HK payment decision: independent of regional price comparison. */
+.payment{padding-top:12px}.decision-line{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:24px 26px;border:1px solid #b1dbc0;background:var(--greenbg);border-radius:26px;margin:18px 0 22px}
+.decision-line strong{display:block;font-size:28px;letter-spacing:-.035em}.eyebrow{font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.payment-card{border:1px solid var(--line);border-radius:24px;padding:22px;background:var(--card)}.payment-card h3{font-size:21px;margin:8px 0 7px}.payment-card .amount{font-size:37px;line-height:1.12;letter-spacing:-.05em;font-weight:800;margin:12px 0 7px;font-variant-numeric:tabular-nums}.payment-card .amount.is-green{color:var(--green)}.payment-card .mini{font-size:12px;color:var(--muted);line-height:1.65}.payment-card .net{border-top:1px solid var(--line);padding-top:14px;margin-top:18px}.payment-card .net strong{display:block;font-size:26px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.payment-tag{font-size:11px;display:inline-block;padding:6px 10px;border-radius:999px;background:var(--bg);color:var(--muted)}
+.payment-controls{margin-top:15px}.payment-controls h3{margin:0 0 12px;font-size:21px}.control-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.control-row{margin-top:14px}.control-row label{font-size:13px;font-weight:650;line-height:1.55;display:flex;justify-content:space-between;gap:8px}.control-row input[type=range]{width:100%;accent-color:var(--blue);margin:12px 0 4px;cursor:pointer}.control-row select{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:11px;padding:12px;margin-top:10px;font-size:14px}.muted-small{font-size:12px;color:var(--muted);line-height:1.7}
+.ledger{margin-top:24px}.ledger h3{font-size:23px;margin:0 0 10px}.ledger td:first-child{width:29%;font-weight:650}.ledger ul{margin:0;padding-left:18px}.ledger li{margin:5px 0}.ledger a{overflow-wrap:anywhere}
+.source-list{padding-left:18px;margin:14px 0 4px;color:var(--muted);font-size:12px;line-height:1.85}.source-list a{text-decoration:underline;text-underline-offset:2px}
+.state{font-size:11px;border-radius:999px;padding:3px 7px;border:1px solid var(--line);white-space:nowrap}.state.caution{color:#b56d06;border-color:#d9a751}
+.payment details{margin-top:13px;border:1px solid var(--line);border-radius:17px;background:var(--card);padding:16px 18px}.payment summary{font-weight:750;cursor:pointer;font-size:15px}.payment details p,.payment details li{font-size:13px;line-height:1.8;color:var(--muted)}.payment details ul{padding-left:20px}
+@media(max-width:780px){.payment-grid,.control-grid{grid-template-columns:1fr}.decision-line{align-items:flex-start;flex-direction:column}.payment-card .amount{font-size:32px}.ledger td:first-child{width:32%}.payment-card{padding:18px}}
 </style></head><body>
 <header class="top"><div class="wrap"><div class="brand">iPhone 18 Pro Max · 256GB</div><nav class="nav"><a href="/">首页</a><a href="/watch/">Apple Watch</a><a href="/mac/">Mac</a></nav></div></header>
 <main class="wrap">
 <section class="hero"><h1>iPhone 18 Pro Max 256GB</h1><p>四个地区统一比较同一款 256GB 机型。美国按免税州 0% 销售税；外币价格同时保留原币与人民币折算，并把 SIM 卡地区差异放在同一页。</p></section>
+
+<section id="hk-payment" class="payment" data-price="11499" aria-labelledby="pay-title">
+  <div class="eyebrow">香港付款决策 · 2026-10-10 快照</div>
+  <h2 id="pay-title">买这部手机，哪张卡让你真正少花钱？</h2>
+  <p class="lead">先比较<strong>自己最终承担的成本</strong>，而不是广告写的回赠比例。下面只看香港 Apple 直营渠道，手机原价 HK$11,499；网上付款与店内直接付款的差别可以切换。所有奖励都是事后回赠，不是结账直接立减。</p>
+  <div class="decision-line">
+    <div><div class="eyebrow">当前默认情境 · ZA 股票价格不变、Chill 当月额度尚有 HK$150</div><strong id="pay-headline">自己用 ZA Card，比借朋友 Chill 少花 HK$74.49</strong></div>
+    <div class="muted-small">ZA 奖励你独享；朋友 Chill 卡的回赠价值你们一人一半。<br>不将抽奖奖品当成已到手的优惠。</div>
+  </div>
+  <div class="payment-grid">
+    <article class="payment-card" aria-labelledby="za-card-title">
+      <span class="payment-tag">你自己的 · 余额付款 · 回赠不分账</span>
+      <h3 id="za-card-title">ZA Card · StockBack 1.5%</h3>
+      <div class="mini">合资格付款获得股票奖励；官网标注「1.5% 无上限」，不代表股票价格不会跌。</div>
+      <div class="amount is-green" id="za-stock" aria-live="polite">HK$172.49</div>
+      <div class="mini">按 1.5% 获得股票的初始等值（不保证卖出价）</div>
+      <div class="net"><div class="eyebrow">你自己最终承担 · 假设按当前模拟价值卖出</div><strong id="za-cost">HK$11,326.51</strong><div class="mini">另有「全城有『机』用」抽奖潜在机会，最高奖赏 HK$21,999；不计入省钱金额。</div></div>
+    </article>
+    <article class="payment-card" aria-labelledby="chill-card-title">
+      <span class="payment-tag">朋友的 · Chill Platinum Mastercard · 回赠五五分</span>
+      <h3 id="chill-card-title">Chill 白金卡 · 网上消费</h3>
+      <div class="mini">标称 4% = 0.4% 基础积分等值 + 3.6% 额外现金回赠；额外部分每月合计封顶 HK$150。</div>
+      <div class="amount" id="chill-reward" aria-live="polite">HK$196.00</div>
+      <div class="mini">朋友这张卡的总回赠等值；<strong>你只分到 <span id="chill-share">HK$98.00</span></strong></div>
+      <div class="net"><div class="eyebrow">你自己最终承担 · 含一半积分折算价值</div><strong id="chill-cost">HK$11,401.00</strong><div class="mini">基础积分不能直接当作现金，需要成功兑换。实际回赠、入账和卡方资格按正式条款。</div></div>
+    </article>
+  </div>
+  <div class="panel payment-controls" aria-label="购机付款计算器">
+    <h3>换一个情境，自己算一次</h3>
+    <div class="control-grid">
+      <div class="control-row"><label for="stock-change">ZA 奖励股票后来上涨或下跌多少？ <output id="stock-change-label" for="stock-change">0%</output></label><input id="stock-change" type="range" min="-50" max="100" step="5" value="0"><div class="muted-small">1.5% 是发奖时的比例。股价上涨 20% ≈ 最终等值 1.8%；上涨约 33.33% ≈ 2%。股价下跌则反过来。</div></div>
+      <div>
+        <div class="control-row"><label for="chill-channel">朋友 Chill 卡怎样付款？</label><select id="chill-channel"><option value="online">Apple 官网完成付款</option><option value="store">Apple 实体店直接刷卡</option></select></div>
+        <div class="control-row"><label for="chill-left">朋友 Chill 本月额外回赠还剩多少？ <output id="chill-left-label" for="chill-left">HK$150</output></label><input id="chill-left" type="range" min="0" max="150" step="5" value="150"><div class="muted-small">假设该月共享的 HK$150 额度尚未使用；实体店直接刷卡不套用网上消费额外 3.6%。</div></div>
+      </div>
+    </div>
+    <p class="muted-small" id="payment-assumption">初始数值是便于比较的条件情境，不是银行保证到账的金额。若 ZA 股票没有卖出，股票的市场价值也不等于现金。</p>
+  </div>
+  <div class="panel ledger" id="payment-evidence">
+    <h3>今天调查后的实际取舍</h3>
+    <table><thead><tr><th>途径</th><th>现在怎么处理</th><th>理由与证据</th></tr></thead><tbody>
+      <tr><td>自己的 ZA Card</td><td>优先比较</td><td>普通扣账卡账户余额付款即可，不要求 ZA Credit。官方 1.5% 股票回赠无固定金额上限；回赠归本人。必须按 StockBack 规则领取股票奖励。</td></tr>
+      <tr><td>朋友 Chill 白金卡</td><td>备用</td><td>Apple 官网付款时，额外回赠每历月合计 HK$150 上限；基础 0.4% 为积分等值。朋友取得回赠后双方按 50/50 分摊价值。朋友是否已经占用额度仍需确认。</td></tr>
+      <tr><td>朋友的中银 Visa</td><td>本次不计 HK$500</td><td>Apple 专项活动的登记入口，朋友实际尝试时显示「名额已满」；具体 Visa 卡种也未确认，不能把未知积分算进折扣。</td></tr>
+      <tr><td>其他活动</td><td>本次不比较</td><td>不计迎新（朋友已无迎新）；按本次购买意愿排除百老汇及可能涉及月费合约的中国移动渠道。</td></tr>
+    </tbody></table>
+    <div class="callout"><strong>HK$21,999 ≠ HK$21,999 立减</strong><p>ZA App 的「全城有『机』用」是一项截至 2026 年 10 月 31 日的电子产品消费任务：单笔 ≥ HK$10,000 有机会抽最高价值 HK$21,999 的 StockBack 奖赏。人工客服确认余额付款也可参加、Apple Pay 可用；但 Apple 香港网店的交易类别依 Visa 实际回传判定，银行无法预先保证；而且<strong>以实际扣款日期</strong>是否在活动期内为准。活动完整公开条款、中奖概率及该抽奖与日常 StockBack 的叠加规则仍未独立核实。因此<strong>预期节省额只计算常规回赠，不包括抽奖</strong>。</p></div>
+    <details><summary>为什么「1.5% 无上限」不等于保证 2%？</summary><p>银行的无上限是指合资格 StockBack 的金额没有固定封顶。HK$11,499 × 1.5% ≈ HK$172.49。若领取的股票后来涨 20%，卖出等值约 HK$206.98（约占原购买额 1.8%）；若跌 20%，等值约 HK$137.99（约 1.2%）。股票投资有波动风险，卖出价、换汇和交易费用以实际为准。需要在官方规定的 48 小时窗口内选择股票奖励，并满足投资账户条件。</p></details>
+    <details><summary>为什么这次不追求海报上最高回赠？</summary><ul>
+      <li>先区分「直接立减」「现金回赠」「积分折算」「股票市场价值」「抽奖最高奖品」，不要混写成同一种现金。</li>
+      <li>先检查登记名额、月度上限、商户分类、实际扣款日期，再算理论百分比。</li>
+      <li>同一笔 HK$11,499，朋友信用卡的回赠必须平分；自己的 ZA 奖励全部归自己，只有比较个人净成本才公平。</li>
+      <li>银行智能客服与人工客服不是可公开复核的正式活动条款；未知的 MCC / 中奖概率 / 能否叠加，应持续标注为未知。</li>
+    </ul></details>
+    <h3 style="margin-top:25px">原始依据与核实边界</h3>
+    <ul class="source-list">
+      <li><a href="https://www.apple.com/hk-zh/shop/buy-iphone/iphone-18-pro/6.9-%E5%90%8B%E9%A1%AF%E7%A4%BA%E5%99%A8-256gb-%E9%8A%80%E8%89%B2" target="_blank" rel="noopener noreferrer">Apple 香港官方：18 Pro Max 256GB 售价 HK$11,499</a>。</li>
+      <li><a href="https://bank.za.group/za-card" target="_blank" rel="noopener noreferrer">ZA Bank 官方：StockBack 1.5% 无上限（至 2026-12-31）、48 小时领取及账户要求</a>。</li>
+      <li><a href="https://www.bochk.com/dam/boccreditcard/chillcard/chill_offer_tnc_sc.pdf" target="_blank" rel="noopener noreferrer">中银香港官方 Chill 条款：白金卡网上 4% 结构、额外 HK$150 / 月上限</a>。</li>
+      <li>「全城有『机』用」任务和人工客服答复来自 2026-10-10 的 ZA App 内核验；<strong>未找到可独立查阅的专项活动完整公开条款</strong>。不公布任何卡号、私人聊天截图或账户资料。</li>
+    </ul>
+    <div class="muted-small"><a href="https://github.com/mykcs/apple-watch-series-12-price-compare/blob/main/docs/decisions/2026-10-10-iphone-hk-payment.md" target="_blank" rel="noopener noreferrer">查看完整研究快照与计算依据</a> · 证据快照：2026-10-10。此页是购买决策辅助，不提供银行卡实时额度查询、中奖保证或股票投资建议。事后奖励金额可能因兑换、汇率、股价及实际交易资格变化。</div>
+  </div>
+</section>
+
 <section><h2>价格</h2><div class="panel"><div class="cards">
 <article class="card"><h3>中国大陆</h3><div class="price">¥10,999</div><div class="local">RMB 10,999</div><div class="note">支持双 nano‑SIM；也可使用 nano‑SIM + eSIM 或双 eSIM。</div></article>
 <article class="card"><h3>香港</h3><div class="price">约 ¥9,839</div><div class="local">HK$11,499</div><div class="note">nano‑SIM + eSIM，同时支持双 eSIM。</div></article>
@@ -29,4 +105,42 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
 <tr><td>美国</td><td>仅 eSIM</td><td>免税州价格最低，但没有实体 SIM 卡槽。</td></tr>
 </tbody></table></div></section>
 </main><footer class="wrap">价格口径：iPhone 18 Pro Max 256GB，不计以旧换新。2026-09-25 汇率快照：1 HKD ≈ ¥0.8556，1 SGD ≈ ¥5.2556，1 USD ≈ ¥6.7114；人民币折算四舍五入到元。价格以下单页面为准。</footer>
+
+<script>
+(function(){
+  "use strict";
+  var section=document.getElementById("hk-payment");
+  if(!section)return;
+  var price=Number(section.dataset.price);
+  var stockInput=document.getElementById("stock-change");
+  var leftInput=document.getElementById("chill-left");
+  var channelInput=document.getElementById("chill-channel");
+  var round=function(v){return Math.round((v+Number.EPSILON)*100)/100;};
+  var money=function(v){return "HK$"+round(v).toLocaleString("en-HK",{minimumFractionDigits:2,maximumFractionDigits:2});};
+  var set=function(id,value){document.getElementById(id).textContent=value;};
+  function update(){
+    var growth=Number(stockInput.value);
+    var left=Number(leftInput.value);
+    var online=channelInput.value==="online";
+    var zaValue=round(price*.015*(1+growth/100));
+    var chillPoints=round(price*.004);
+    var chillExtra=online?Math.min(150,left,round(price*.036)):0;
+    var chillValue=round(chillPoints+chillExtra);
+    var chillShare=round(chillValue/2);
+    var zaCost=round(price-zaValue);
+    var chillCost=round(price-chillShare);
+    var diff=round(Math.abs(chillCost-zaCost));
+    set("stock-change-label",(growth>0?"+":"")+growth+"%");
+    set("chill-left-label","HK$"+left);
+    set("za-stock",money(zaValue));
+    set("za-cost",money(zaCost));
+    set("chill-reward",money(chillValue));
+    set("chill-share",money(chillShare));
+    set("chill-cost",money(chillCost));
+    set("pay-headline",zaCost<chillCost?"自己用 ZA Card，比借朋友 Chill 少花 "+money(diff):chillCost<zaCost?"借朋友 Chill，比自己用 ZA Card 少花 "+money(diff):"两种卡的模拟净成本相同");
+  }
+  [stockInput,leftInput,channelInput].forEach(function(el){el.addEventListener("input",update);el.addEventListener("change",update);});
+  update();
+})();
+</script>
 </body></html>
