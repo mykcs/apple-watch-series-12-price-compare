@@ -206,22 +206,53 @@ def validate_iphone_payment() -> None:
 def validate_iphone_tradein_routes() -> None:
     text = (ROOT / "iphone/index.html").read_text(encoding="utf-8")
     for fragment in (
-        'id="trade-flow-simulator" data-new-price="11499"',
-        'name="trade-flow-route" value="store" checked',
-        'name="trade-flow-route" value="delivery"',
-        'name="trade-flow-route" value="pickup"',
-        'id="trade-flow-value"',
-        'id="trade-flow-stock"',
-        'id="trade-flow-bank-result"',
-        "function render()",
-        'stockEl.disabled=mode!=="store"',
-        "收到新机后 14 天内交付",
-        "到店取货本身并不节省垫资",
-        "iPhone 18 Pro Max 9 月 18 日起线上与实体店发售",
+        'id="trade-flow-simulator" data-price="11499" data-balance="5080"',
+        'data-tf-route="A"',
+        'data-tf-route="B"',
+        'data-tf-route="C"',
+        'data-tf-route="D"',
+        'data-tf-route="E"',
+        'data-tf-route="F"',
+        'id="tf-apple-value"',
+        'id="tf-private-value"',
+        'id="tf-stat-topup"',
+        'id="tf-stat-final"',
+        'id="tf-stat-gift"',
+        'id="tf-stat-quest"',
+        'active="A"',
+        'var charge=["A","C"].indexOf(active)>=0?',
+        'var cashBefore=balance+(active==="E"?privateCash:0)',
+        'var futureCash=(active==="B"?apple:active==="F"?privateCash:0)',
+        'var gift=(active==="D"?apple:0)',
+        "先把旧机价值用起来",
+        "ZA 全额刷",
+        "礼品卡不可直接换港币",
+        "新机可否使用 Apple Store 礼品卡",
+        "需要真实买家",
     ):
-        require(text, fragment, "iPhone HK three-route Trade In simulator")
-    assert 11499 - 7000 == 4499
-    assert 11499 >= 10000 and 4499 < 10000
+        require(text, fragment, "iPhone six-route HKD5080 decision tree")
+
+    # HK$1,180 + HK$3,900 = HK$5,080, now fixed rather than a slider.
+    balance, new_price, trade, sale = 1180 + 3900, 11499, 7000, 7000
+    net = new_price - trade
+    assert balance == 5080 and net == 4499
+    # A: on-site HK$4,499, no top-up, cash left HK$581.
+    assert max(0, net - balance) == 0 and balance - net == 581
+    # B: HK$11,499 authorized; HK$6,419 top-up; refund HK$7,000 later.
+    assert new_price - balance == 6419 and trade == 7000
+    # C: apply HK$7,000 Apple Gift Card, ZA pays remaining HK$4,499.
+    assert new_price - trade == net and balance - net == 581
+    # D: HK$6,419 top-up, no bank refund; later Apple Gift Card HK$7,000.
+    assert new_price - (balance + 6419) == 0 and trade == 7000
+    # E: sell for HK$7,000 first, then pay full, with zero top-up.
+    assert max(0, new_price - balance - sale) == 0
+    assert balance + sale - new_price == 581
+    # F: pay full first, sell later, temporarily top up HK$6,419.
+    assert new_price - balance == 6419
+    # Initial 1.5% stock awards, not checkout price reductions.
+    assert int(new_price * .015 * 100 + .5) == 17249
+    assert int(net * .015 * 100 + .5) == 6749
+    assert net < 10000 <= new_price
 
 
 def main() -> int:
