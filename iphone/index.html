@@ -34,6 +34,34 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
 .tradein-step{padding-left:22px;font-size:13px;line-height:1.8}
 .tradein-step li{margin:8px 0}
 @media(max-width:780px){.tradein-grid{grid-template-columns:1fr}.tradein-card .figure{font-size:31px}}
+
+/* Purchase/Trade-In flow simulator: Apple HK dated 2026-10-10. */
+.trade-flow{margin:20px 0 22px;padding:24px;border-radius:27px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+.trade-flow h3{font-size:25px;letter-spacing:-.04em;margin:3px 0 11px}
+.trade-flow legend{font-size:12px;font-weight:750;letter-spacing:.015em;margin-bottom:11px;color:var(--muted)}
+.trade-flow fieldset{border:0;margin:0;padding:0;min-width:0}
+.trade-flow-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.trade-flow-option{display:flex;flex-direction:column;gap:9px;border:1px solid var(--line);border-radius:16px;padding:14px;cursor:pointer;font-size:14px;line-height:1.5;font-weight:700}
+.trade-flow-option:has(input:checked){border:2px solid var(--blue);padding:13px;background:color-mix(in srgb,var(--blue) 6%,transparent)}
+.trade-flow-option span{color:var(--muted);font-size:11px;font-weight:400}
+.trade-flow-option input{accent-color:var(--blue);margin:0 0 2px;width:17px;height:17px}
+.trade-flow-controls{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap;margin:20px 0 18px}
+.trade-flow-controls label{font-size:13px;line-height:1.5;font-weight:650}
+.trade-flow-controls input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer}
+.trade-flow-controls .range-wrap{flex:2;min-width:175px}
+.trade-flow-controls .check-wrap{flex:1;min-width:160px;background:var(--bg);border-radius:12px;padding:12px}
+.trade-flow-controls .check-wrap input{width:17px;height:17px;vertical-align:middle;margin-right:6px;accent-color:var(--blue)}
+.trade-flow-summary{padding:19px;background:var(--bg);border-radius:18px;display:grid;grid-template-columns:1.5fr 1fr;gap:16px;align-items:center}
+.trade-flow-summary .sum-price{font-size:35px;line-height:1.15;letter-spacing:-.04em;font-weight:800;margin:6px 0}
+.trade-flow-summary .sum-tag{font-size:12px;color:var(--muted);line-height:1.65}
+.trade-flow-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:15px 0}
+.trade-flow-step{border:1px solid var(--line);padding:14px;border-radius:15px}
+.trade-flow-step .step-no{color:var(--sub);font-size:11px;font-weight:750}
+.trade-flow-step strong{font-size:15px;display:block;margin:7px 0}
+.trade-flow-step p{color:var(--muted);font-size:12px;line-height:1.7;margin:0}
+.trade-flow-bank{border-left:4px solid #b47a1c;background:var(--bg);padding:12px 16px;border-radius:9px;font-size:12px;line-height:1.75}
+.trade-flow .source-list{margin:11px 0 0}
+@media(max-width:780px){.trade-flow{padding:17px}.trade-flow-choices,.trade-flow-steps{grid-template-columns:1fr}.trade-flow-summary{grid-template-columns:1fr}.trade-flow-summary .sum-price{font-size:29px}}
 </style></head><body>
 <header class="top"><div class="wrap"><div class="brand">iPhone 18 Pro Max · 256GB</div><nav class="nav"><a href="/">首页</a><a href="/watch/">Apple Watch</a><a href="/mac/">Mac</a></nav></div></header>
 <main class="wrap">
@@ -108,6 +136,41 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
   <div class="eyebrow">折抵旧机与 AppleCare+ · 2026-10-10 新增情境</div>
   <h2 id="tradein-heading">如果把内地版 iPhone 17 Pro Max 折抵掉？</h2>
   <p class="lead">这是<strong>不同于上方全额刷卡</strong>的新情境。旧机仍有有效至 2027 年 9 月 28 日的中国大陆两年期 AppleCare+。以下以本人提供的 <strong>HK$7,000 折抵报价</strong>作假设，旧机的实际验收及最终报价以 Apple 为准。</p>
+
+<div class="trade-flow" id="trade-flow-simulator" data-new-price="11499" aria-labelledby="flow-heading">
+  <div class="eyebrow">实操模拟 · 香港 Apple Trade In</div>
+  <h3 id="flow-heading">先选你怎样下单，再看旧机怎么交</h3>
+  <p class="muted-small">三个路径唯一最重要的区别：<strong>实体店现场成交</strong>和<strong>网上成交后去实体店取货</strong>不是同一种订单。此模拟不是 Apple 的真实购物车，不代表已锁定库存或报价。</p>
+  <fieldset><legend>第一步 · 新机订单在哪里完成付款？</legend>
+    <div class="trade-flow-choices">
+      <label class="trade-flow-option"><input type="radio" name="trade-flow-route" value="store" checked>实体店现场购买<span>带旧机 Walk-in；验机后直接用旧机价值抵扣新机</span></label>
+      <label class="trade-flow-option"><input type="radio" name="trade-flow-route" value="delivery">Apple 官网付款＋送货<span>线上 Trade In；按电邮指示快递上门或指定地点交旧机</span></label>
+      <label class="trade-flow-option"><input type="radio" name="trade-flow-route" value="pickup">Apple 官网付款＋到店取货<span>仍是网上订单；到店领取新机≠现场支付差价</span></label>
+    </div>
+  </fieldset>
+  <div class="trade-flow-controls">
+    <div class="range-wrap"><label for="trade-flow-value">旧机<strong>最后验收</strong>的金额（模拟） <output id="trade-flow-value-label" for="trade-flow-value">HK$7,000</output></label>
+      <input id="trade-flow-value" type="range" min="0" max="7000" step="250" value="7000"><div class="muted-small">当前网上预估约 HK$7,000；屏幕约 3 厘米轻微划痕可能令实际估价降低。最终按 Apple / 合作商检验。</div></div>
+    <label class="check-wrap"><input id="trade-flow-stock" type="checkbox" checked>所选实体店当天有现货<div class="muted-small" style="margin-top:7px">只有在店内完成购买时，此项才影响即时折抵；库存需要向 Apple 核实。</div></label>
+  </div>
+  <div class="trade-flow-summary" aria-live="polite">
+    <div><div class="eyebrow" id="trade-flow-summary-title">现场只付差价</div><div class="sum-price" id="trade-flow-pay">HK$4,499</div><div class="sum-tag" id="trade-flow-net">折抵后设备净价 HK$4,499，现场不用等退款。</div></div>
+    <div><div class="eyebrow">旧机价值何时到账？</div><strong id="trade-flow-refund">付款时即时抵扣</strong><div class="sum-tag" id="trade-flow-refund-detail">无需额外等待 HK$7,000 返回银行卡。</div></div>
+  </div>
+  <div class="trade-flow-steps">
+    <div class="trade-flow-step"><div class="step-no">01 · 新机下单及付款</div><strong id="trade-flow-step1-title">到店验机、查看新机现货</strong><p id="trade-flow-step1">店员确认香港版 iPhone 18 Pro Max 256GB 有货，验收旧机后再决定是否交易。</p></div>
+    <div class="trade-flow-step"><div class="step-no">02 · 旧机如何交付</div><strong id="trade-flow-step2-title">现场交付，不必邮寄</strong><p id="trade-flow-step2">确认最终报价且数据已迁移、备份、关闭「查找」后，把旧机交给店员。</p></div>
+    <div class="trade-flow-step"><div class="step-no">03 · 折抵、退款与风险</div><strong id="trade-flow-step3-title">现场直接扣减旧机价值</strong><p id="trade-flow-step3">若报价 HK$7,000，只需补 HK$4,499；外观划痕可能影响报价。</p></div>
+  </div>
+  <div class="trade-flow-bank"><strong>ZA Bank 的 HK$10,000 抽奖门槛：</strong><span id="trade-flow-bank-result">这条路线只刷 HK$4,499，低于单笔 HK$10,000 门槛，不参加该金额档次的活动。</span></div>
+  <p class="muted-small" id="trade-flow-recommendation" style="margin-top:16px"><strong>你的优先路线：</strong>先查直营店的现货，带旧机去现场估价，若 HK$7,000 或你接受的金额可当场抵扣，就直接付差价。别为了抽奖额外换汇垫资。</p>
+  <p class="muted-small"><strong>关于「顺丰」：</strong>香港官方只承诺确认电邮会说明「快递上门取件／合资格指定地点交付」，没有承诺所有订单都必须走顺丰或能直接交到 Apple Store 取货柜台。</p>
+  <ul class="source-list"><li><a href="https://www.apple.com/hk-zh/shop/trade-in" target="_blank" rel="noopener noreferrer">Apple 香港 Trade In：店内即时验机、线上退款流程、14 天旧机交付、修订报价可拒绝</a></li>
+  <li><a href="https://www.apple.com/hk-zh/shop/shipping-pickup" target="_blank" rel="noopener noreferrer">Apple 香港送货与取货：网上订单到店领取另有交付指引</a></li>
+  <li><a href="https://www.apple.com/hk/en/newsroom/2026/09/get-ready-to-experience-iphone-18-pro-the-new-apple-watch-lineup-and-airpods-5/" target="_blank" rel="noopener noreferrer">Apple 官方 2026 年 9 月：iPhone 18 Pro Max 9 月 18 日起线上与实体店发售</a></li>
+  </ul>
+</div>
+
   <div class="panel">
     <div class="tradein-grid">
       <div class="tradein-card">
@@ -205,4 +268,64 @@ footer{padding:32px 0 64px;color:var(--sub);font-size:11px;line-height:1.6}
   update();
 })();
 </script>
+
+<script>
+(function(){
+"use strict";
+var root=document.getElementById("trade-flow-simulator");if(!root)return;
+var routes=[].slice.call(root.querySelectorAll('input[name="trade-flow-route"]'));
+var quoteEl=document.getElementById("trade-flow-value"),stockEl=document.getElementById("trade-flow-stock");
+var price=Number(root.dataset.newPrice);
+function money(v){return "HK$"+v.toLocaleString("en-HK",{maximumFractionDigits:0});}
+function set(id,value){document.getElementById(id).textContent=value;}
+function render(){
+ var mode=(routes.find(function(x){return x.checked})||routes[0]).value;
+ var quote=Number(quoteEl.value),stock=stockEl.checked;
+ var net=Math.max(0,price-quote);
+ set("trade-flow-value-label",money(quote));
+ stockEl.disabled=mode!=="store";
+ if(mode==="store" && !stock){
+  set("trade-flow-summary-title","实体店无现货：暂不能现场成交");
+  set("trade-flow-pay","尚不能结账");
+  set("trade-flow-net","现场估价不等于已有新机订单；需要查另一家店或改选网上下单。");
+  set("trade-flow-refund","暂未发生");
+  set("trade-flow-refund-detail","未实际折抵时，无现金退款或信用额度。");
+  set("trade-flow-step1-title","查库存后再决定");set("trade-flow-step1","该店无现货，不能保证将来补货时仍按今日旧机估价销售。");
+  set("trade-flow-step2-title","旧机先留在手中");set("trade-flow-step2","可以询问 Specialist 是否允许单独现场估价；未确认新订单前不要交出旧机。");
+  set("trade-flow-step3-title","暂时不发生抵扣");set("trade-flow-step3","可改选另一门店或线上付款，但不能把线上取货当作店内现场成交。");
+  set("trade-flow-bank-result","尚无交易，不产生 ZA 购物消费资格。");
+  set("trade-flow-recommendation","先查有现货的直营店；不要为了保留一个未确认的 HK$7,000 报价提前交机。");
+ }else if(mode==="store"){
+  set("trade-flow-summary-title","现场实际需支付（模拟）");
+  set("trade-flow-pay",money(net));
+  set("trade-flow-net","设备净价 "+money(net)+"；即时从售价 "+money(price)+" 中减去 "+money(quote)+"，不计 AppleCare+ 与银行回赠。");
+  set("trade-flow-refund","立即抵扣 "+money(quote));
+  set("trade-flow-refund-detail","这是在店内一笔交易当场抵扣，不是先支付全款后等返款。");
+  set("trade-flow-step1-title","当场验机并购买");set("trade-flow-step1","确认指定 256GB 颜色有货后，让 Specialist 现场评估旧 iPhone（包括划痕）并告知最终报价。");
+  set("trade-flow-step2-title","旧机现场交付");set("trade-flow-step2","接受最终报价、完成备份/数据迁移及关闭「查找」后，再交旧机；无需按线上电邮另行快递。");
+  set("trade-flow-step3-title","一笔交易只补差价");set("trade-flow-step3","假设店内收旧机 "+money(quote)+"，新机差价 "+money(net)+"。不接受估价时可不成交。");
+  set("trade-flow-bank-result",net<10000?"本次 ZA Card 实际签账 "+money(net)+"，低于 HK$10,000，不能靠这笔交易达到活动金额门槛。":"本次签账 "+money(net)+"，虽达到 HK$10,000 但电子产品商户分类等条件仍待银行判定。");
+  set("trade-flow-recommendation","优先先查新机现货、带旧机到直营店当场估价；若价格满意就只付差价，避免额外垫资与返款不确定性。");
+ }else{
+  var pickup=mode==="pickup";
+  set("trade-flow-summary-title",pickup?"官网付款＋Apple Store 取货":"官网付款＋配送到家");
+  set("trade-flow-pay",money(price));
+  set("trade-flow-net","先付新机全价；成功验收后退回 "+money(quote)+"，最终设备净支出仍为 "+money(net)+"（不计银行奖励）。");
+  set("trade-flow-refund","验收后退款 "+money(quote));
+  set("trade-flow-refund-detail","网上 Trade In 一般约 2–3 星期处理；审核后的退款还需约 3–5 个工作日处理，银行实际入账可能再延后。");
+  set("trade-flow-step1-title",pickup?"网上付款，再到店取货":"网上付款，等待送货");
+  set("trade-flow-step1",pickup?"在 Apple 官网完成 HK$11,499 付款后，去门店领取的是已经付款的新手机；不会自动改成当场只付差价。":"在 Apple 官网为新手机付款 HK$11,499，结账时选择 Trade In，并等待新机送达。");
+  set("trade-flow-step2-title","按 Trade In 电邮交旧机");
+  set("trade-flow-step2",pickup?"即使本人在门店取新机，也不要默认旧机可以交到取货柜台。以换购确认电邮的快递上门/指定交付地点指示为准，收到新机后 14 天内交付。":"新机收到后 14 天内，把旧机依照换购电邮指示交给承运商或合资格交付点。不是所有交易都指定顺丰。");
+  set("trade-flow-step3-title","验收、可能重报价、返还原支付卡");
+  set("trade-flow-step3","旧机经检验后，若符合描述，Apple 通常按原付款方式退回 "+money(quote)+"；如果划痕导致降价，可接受或拒绝新报价。");
+  set("trade-flow-bank-result","原始付款 "+money(price)+" 达到 HK$10,000，但 Apple 随后退回 "+money(quote)+"，ZA 可能将实际消费视作 "+money(net)+"，甚至调整股票奖励或抽奖资格。银行尚未确认这项 Trade In 退款如何计入 ZA Quest，不能把活动资格算作已取得。");
+  set("trade-flow-recommendation",pickup?"这是网上订单而非店内结账。除非 Apple 明确同意更改订单流程，否则应按线上旧机交付及退款处理；到店取货本身并不节省垫资。":"仅当你确实需要配送/锁定在线配置，或银行明确书面确认返款后仍符合抽奖时再考虑；不要为了不确定的抽奖额外换汇垫资。");
+ }
+}
+routes.concat([quoteEl,stockEl]).forEach(function(el){el.addEventListener("input",render);el.addEventListener("change",render);});
+render();
+})();
+</script>
+
 </body></html>
