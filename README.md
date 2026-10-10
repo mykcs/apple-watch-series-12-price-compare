@@ -19,7 +19,7 @@
 ### iPhone
 只比较 iPhone 18 Pro Max 256GB。中国大陆、香港、新加坡、美国免税州四地官方价，并列出 SIM / eSIM 差异。
 
-2026-10-10 新增香港 Apple 直营购机付款计算器：本人 ZA Card（1.5% StockBack 回赠本人独享）与朋友 Chill Platinum Mastercard（额外回赠封顶、价值五五分），附苹果香港价格、银行官方依据、未证实抽奖的风险边界和可调情境。研究快照见 [`docs/decisions/2026-10-10-iphone-hk-payment.md`](docs/decisions/2026-10-10-iphone-hk-payment.md)。
+2026-10-10 新增香港 Apple 直营购机付款计算器：本人 ZA Card（1.5% StockBack 回赠本人独享）与朋友 Chill Platinum Mastercard（额外回赠封顶、价值五五分），附苹果香港价格、银行官方依据、未证实抽奖的风险边界和可调情境。 另有六条互相交叉的旧机处置/付款路线天赋树，固定港币余额 HK$5,080，逐条区分 Apple 折抵退款、Apple 礼品卡、独立出售取得的现金，以及 ZA 单笔满额的条件。研究快照见 [`docs/decisions/2026-10-10-iphone-hk-payment.md`](docs/decisions/2026-10-10-iphone-hk-payment.md)。
 
 ### Mac
 当前优先级最高。除 MacBook Pro / Mac mini 的教育价、芯片、内存、SSD 外，Mac mini 页面新增实际工作流问题：当 iPhone 上的 ChatGPT 请求 GitHub 权限并触发 Passkey 时，没有内建 Touch ID 的 Mac mini 如何完成认证，以及本地、附近 iPhone、远程无人值守三种场景该如何区分。
