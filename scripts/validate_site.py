@@ -206,68 +206,48 @@ def validate_iphone_payment() -> None:
 def validate_iphone_tradein_routes() -> None:
     text = (ROOT / "iphone/index.html").read_text(encoding="utf-8")
     for fragment in (
-        'id="trade-flow-simulator" data-price="11499" data-balance="5080"',
-        'data-tf-route="A"',
-        'data-tf-route="B"',
-        'data-tf-route="C"',
-        'data-tf-route="D"',
-        'data-tf-route="E"',
-        'data-tf-route="F"',
-        'id="tf-apple-value"',
-        'id="tf-private-value"',
-        'id="tf-stat-topup"',
-        'id="tf-stat-final"',
-        'id="tf-stat-gift"',
-        'id="tf-stat-quest"',
-        'id="tf-stat-care-topup"',
-        'id="tf-stat-alltopup"',
-        'id="tf-stat-postcare"',
-        "var carePrice=1799",
-        "var allTopup=topup+careTopup",
-        'active="A"',
-        'var charge=["A","C"].indexOf(active)>=0?',
-        'var cashBefore=balance+(active==="E"?privateCash:0)',
-        'var futureCash=(active==="B"?apple:active==="F"?privateCash:0)',
-        'var gift=(active==="D"?apple:0)',
-        "先把旧机价值用起来",
-        "ZA 全额刷",
-        "礼品卡不可直接换港币",
-        "新机可否使用 Apple Store 礼品卡",
-        "需要真实买家",
+        'id="trade-flow-simulator" data-price="11499" data-balance="5080" data-care="1799"',
+        'data-route="A"',
+        'data-route="B"',
+        'id="tf2-appraise"',
+        'id="tf2-care-when"',
+        'id="tf2-day-topup"',
+        'id="tf2-total-topup"',
+        'id="tf2-final-bank"',
+        'id="tf2-refund"',
+        'id="tf2-stockback"',
+        'id="tf2-raffle"',
+        'var laterTopup=Math.max(0,laterCare-cashBeforeLaterCare)',
+        "C 是「先领礼品卡再付款」",
+        "不考虑礼品卡和私人出售",
+        "银行尚未正式保证",
     ):
-        require(text, fragment, "iPhone six-route HKD5080 decision tree")
+        require(text, fragment, "iPhone two active HK Trade In routes")
 
-    # HK$1,180 + HK$3,900 = HK$5,080, now fixed rather than a slider.
-    balance, new_price, trade, sale = 1180 + 3900, 11499, 7000, 7000
-    net = new_price - trade
-    assert balance == 5080 and net == 4499
-    # A: on-site HK$4,499, no top-up, cash left HK$581.
-    assert max(0, net - balance) == 0 and balance - net == 581
-    # B: HK$11,499 authorized; HK$6,419 top-up; refund HK$7,000 later.
-    assert new_price - balance == 6419 and trade == 7000
-    # C: apply HK$7,000 Apple Gift Card, ZA pays remaining HK$4,499.
-    assert new_price - trade == net and balance - net == 581
-    # D: HK$6,419 top-up, no bank refund; later Apple Gift Card HK$7,000.
-    assert new_price - (balance + 6419) == 0 and trade == 7000
-    # E: sell for HK$7,000 first, then pay full, with zero top-up.
-    assert max(0, new_price - balance - sale) == 0
-    assert balance + sale - new_price == 581
-    # F: pay full first, sell later, temporarily top up HK$6,419.
-    assert new_price - balance == 6419
-    # Initial 1.5% stock awards, not checkout price reductions.
-    assert int(new_price * .015 * 100 + .5) == 17249
-    assert int(net * .015 * 100 + .5) == 6749
-    assert net < 10000 <= new_price
-    # Additional required two-year HK AppleCare+ (2026-10-10 official HK price).
-    care = 1799
-    # A/C: on-site net purchase HK$4,499 leaves HK$581; then HK$1,218 short.
-    assert care - (balance - net) == 1218
-    # B/F: after HK$7,000 arrives, cash remains HK$5,201 after care.
-    assert 7000 - care == 5201
-    # D: HK$7,000 Apple gift card is not cash; care needs HK$1,799 more.
-    assert 6419 + care == 8218
-    # E: HK$7,000 independent pre-sale leaves HK$581, then care shortfall HK$1,218.
-    assert care - (balance + sale - new_price) == 1218
+    if 'data-route="C"' in text or 'data-tf-route="E"' in text:
+        fail("retired purchase routes must not be active")
+
+    balance, price, trade, care = 1180 + 3900, 11499, 7000, 1799
+    immediate = price - trade
+    assert balance == 5080 and immediate == 4499
+    # Route A, AppleCare+ paid later: no extra money for phone, HK$1,218 later.
+    assert max(0, immediate - balance) == 0
+    assert care - (balance - immediate) == 1218
+    # Route A, AppleCare+ paid same day: full HK$6,298 charge, HK$1,218 top-up.
+    assert immediate + care == 6298
+    assert immediate + care - balance == 1218
+    # Route B, AppleCare+ bought after confirmed HK$7,000 refund.
+    assert price - balance == 6419
+    assert trade - care == 5201
+    # Route B, AppleCare+ bought upfront: HK$13,298 needs HK$8,218 top-up,
+    # then HK$7,000 later becomes bank balance, not a second discount.
+    assert price + care == 13298
+    assert price + care - balance == 8218
+    assert trade == 7000
+    # Stocks are value approximations, not checkout price reductions.
+    assert int(immediate * .015 * 100 + .5) == 6749
+    assert int(price * .015 * 100 + .5) == 17249
+    assert immediate < 10000 <= price
 
 
 def main() -> int:
