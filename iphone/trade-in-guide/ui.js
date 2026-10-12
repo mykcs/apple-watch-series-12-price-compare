@@ -38,7 +38,8 @@ function radio(key,items,value){
  }).join("")+'</div>';
 }
 function slider(key,text,value,min,max,step){
- return '<div class="range-box"><div class="range-line"><span>'+esc(text)+'</span><b id="amount-'+key+'">HK$'+Number(value).toLocaleString("en-HK")+'</b></div><input type="range" data-range="'+key+'" min="'+min+'" max="'+max+'" step="'+step+'" value="'+value+'" aria-label="'+esc(text)+'"></div>';
+ const currency=key==="careRefund"?"¥":"HK$";
+ return '<div class="range-box"><div class="range-line"><span>'+esc(text)+'</span><b id="amount-'+key+'">'+currency+Number(value).toLocaleString("en-HK")+'</b></div><input type="range" data-range="'+key+'" min="'+min+'" max="'+max+'" step="'+step+'" value="'+value+'" aria-label="'+esc(text)+'"></div>';
 }
 function note(title,body,kind){
  return '<div class="notice'+(kind?' '+kind:'')+'"><strong>'+esc(title)+'</strong><p>'+esc(body)+'</p></div>';
