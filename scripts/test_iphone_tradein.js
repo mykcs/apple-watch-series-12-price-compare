@@ -96,4 +96,9 @@ for(const f of ["model.js","ui.js","app.js"])assert.ok(html.includes('src="./'+f
 for(const t of ["能抵 7,000","只能抵更少","要收 228","要寄走检查","不能折抵",
    "那我该怎么寄旧手机？是去顺丰网点，还是你们安排收件？如果最后报价变低，我可以不同意，然后把旧手机拿回来吗？",
    "上门收件","指定网点","拒绝折抵","已买新机"])assert.ok(ui.includes(t)||app.includes(t)||model.includes(t),"missing original choice/question/outcome: "+t);
-console.log("PASS: 24 trade-in dialogue branches/invariants + source completeness");
+const uiContext={window:{}};
+vm.runInNewContext(ui,uiContext);
+const widgets=uiContext.window.TradeInUI;
+assert.ok(widgets.slider("careRefund","原计划退款",500,0,2500,50).includes(">¥500<"),"old Mainland AppleCare+ is RMB even before moving slider");
+assert.ok(widgets.slider("budget","港币预算",5000,3500,11500,100).includes(">HK$5,000<"),"Hong Kong budget stays in HKD");
+console.log("PASS: trade-in dialogue branches, copy/source integrity, HKD vs RMB currency");
