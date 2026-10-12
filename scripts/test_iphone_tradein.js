@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+"use strict";
+/* No dependencies: exercised by GitHub Actions on every PR. */
+const assert=require("node:assert/strict");
+const fs=require("node:fs");
+const vm=require("node:vm");
+const path=require("node:path");
+const folder=path.join(__dirname,"../iphone/trade-in-guide");
+const context={window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(folder,"model.js"),"utf8"),context);
+const M=context.window.TradeInModel;
+assert.ok(M,"Decision model must be exposed");
+const change=(s,...kv)=>{for(let i=0;i<kv.length;i+=2)s=M.change(s,kv[i],kv[i+1]);return s;};
+const judge=(...kv)=>M.evaluate(change(M.fresh(),...kv));
+let d=judge("route","pass","storePay","offset","shopBuy","yes");
+assert.equal(d.quote,7000,"accepted scratches are already included");
+assert.equal(d.fee,0,"never deduct HK$228 after HK$7,000 pass");
+assert.equal(d.dueNow,4500);
+assert.equal(d.outcome,"bought-traded");
+
+d=judge("route","lower","quote",6500,"storeAccept","no");
+assert.equal(d.outcome,"not-buy","declined onsite offer must finish not-buy");
+assert.equal(d.dueNow,0);
+d=judge("route","lower","quote",6500,"storeAccept","yes","storePay","offset","shopBuy","yes");
+assert.equal(d.dueNow,5000,"lower quote is the FINAL price, no double deduction");
+assert.equal(d.fee,0);
+
+d=judge("route","repair","repair","deduct","storeAccept","yes","storePay","offset","shopBuy","yes");
+assert.equal(d.dueNow,4728,"228 deducted from trade quote only once");
+d=judge("route","repair","repair","fee","repairVerified","yes","storeAccept","yes","storePay","offset","shopBuy","yes");
+assert.equal(d.dueNow,4728,"separate repair fee charged only once");
+assert.equal(d.fee,228);
+d=judge("route","repair","repair","fee","repairVerified","unknown","storeAccept","yes","storePay","offset","shopBuy","yes");
+assert.equal(d.purchased,false,"unverified cross-border HK$228 service cannot be bought as confirmed");
+d=judge("route","pass","storePay","full","storeRefundVerified","unknown","shopBuy","yes");
+assert.equal(d.purchased,false,"full-pay store refund requires confirmation");
+d=judge("route","pass","storePay","full","storeRefundVerified","yes","shopBuy","yes");
+assert.equal(d.dueNow,11500);
+assert.equal(d.refundLater,7000);
+assert.equal(d.netCash,4500);
+
+d=judge("route","mail","mailRefund","gift","courier","pickup","returnAllowed","yes","mailBuy","yes");
+assert.equal(d.purchased,false,"gift card is NOT an acceptable original-card cash refund");
+d=judge("route","mail","mailRefund","cash","courier","dropoff","returnAllowed","no","mailBuy","yes");
+assert.equal(d.purchased,false,"must confirm ability to decline reduced offer");
+d=judge("route","mail","mailRefund","cash","courier","pickup","returnAllowed","yes","mailBuy","no");
+assert.equal(d.outcome,"not-buy","pre-purchase refusal is a genuine not-buy");
+assert.equal(d.dueNow,0);
+const paidMail=["route","mail","mailRefund","cash","courier","pickup","returnAllowed","yes","mailBuy","yes"];
+d=judge(...paidMail);
+assert.equal(d.outcome,"bought-pending");
+assert.equal(d.netCash,null,"no speculative final net cost while factory is pending");
+assert.equal(d.dueNow,11500);
+d=judge(...paidMail,"factory","approved");
+assert.equal(d.outcome,"bought-traded");
+assert.equal(d.refundLater,7000);
+assert.equal(d.netCash,4500);
+d=judge(...paidMail,"factory","lower","factoryQuote",6000,"factoryAccept","yes");
+assert.equal(d.refundLater,6000);
+assert.equal(d.netCash,5500);
+assert.equal(d.overBudget,true);
+d=judge(...paidMail,"factory","lower","factoryQuote",6000,"factoryAccept","no");
+assert.equal(d.outcome,"bought-return-old","cannot undo new phone purchase after rejecting late valuation");
+assert.equal(d.noBuy,false);
+assert.equal(d.refundLater,0);
+assert.equal(d.netCash,11500);
+d=judge(...paidMail,"factory","rejected");
+assert.equal(d.outcome,"bought-return-old");
+d=judge("route","reject","standaloneBuy","no");
+assert.equal(d.outcome,"not-buy");
+d=judge("route","reject","standaloneBuy","yes");
+assert.equal(d.outcome,"bought-standalone");
+assert.equal(d.dueNow,11500);
+
+d=judge("route","pass","careGate",true,"storePay","offset","shopBuy","yes");
+assert.equal(d.purchased,false,"unknown old AppleCare+ refund blocks selling when user opted in");
+d=judge("route","pass","careGate",true,"careStatus","refundable","careRefund",500,"storePay","offset","shopBuy","yes");
+assert.equal(d.purchased,true);
+let s=change(M.fresh(),"route","mail","mailRefund","cash","courier","pickup","returnAllowed","yes","mailBuy","yes","factory","lower","factoryAccept","no");
+s=M.change(s,"mailRefund","gift");
+assert.equal(s.mailBuy,"","changing an early answer clears a later purchase");
+assert.equal(s.factory,"pending","changing an early answer clears factory result");
+s=M.change(s,"route","pass");
+assert.equal(s.mailRefund,"unknown","changing path clears mail assumptions");
+assert.equal(s.factoryAccept,"");
+assert.equal(s.quote,6500);
+s=change(M.fresh(),"route","pass","storePay","offset","shopBuy","yes");
+s=M.change(s,"careGate",true);
+assert.equal(s.shopBuy,"","new blocking precondition invalidates stale buy selection");
+
+const html=fs.readFileSync(path.join(folder,"index.html"),"utf8");
+const ui=fs.readFileSync(path.join(folder,"ui.js"),"utf8");
+const app=fs.readFileSync(path.join(folder,"app.js"),"utf8");
+for(const f of ["model.js","ui.js","app.js"])assert.ok(html.includes('src="./'+f+'"'),f+" not loaded");
+for(const t of ["能抵 7,000","只能抵更少","要收 228","要寄走检查","不能折抵",
+   "那我该怎么寄旧手机？是去顺丰网点，还是你们安排收件？如果最后报价变低，我可以不同意，然后把旧手机拿回来吗？",
+   "上门收件","指定网点","拒绝折抵","已买新机"])assert.ok(ui.includes(t)||app.includes(t),"missing original choice/question/outcome: "+t);
+console.log("PASS: 24 trade-in dialogue branches/invariants + source completeness");
