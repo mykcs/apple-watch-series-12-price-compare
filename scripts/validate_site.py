@@ -12,6 +12,7 @@ PAGES = (
     Path("index.html"),
     Path("watch/index.html"),
     Path("iphone/index.html"),
+    Path("iphone/trade-in-guide/index.html"),
     Path("mac/index.html"),
     Path("mac/macbook-pro/index.html"),
     Path("mac/mac-mini/index.html"),
@@ -250,6 +251,25 @@ def validate_iphone_tradein_routes() -> None:
     assert immediate < 10000 <= price
 
 
+def validate_tradein_dialogue() -> None:
+    """The guided conversation is a separate subroute; do not overwrite finance logic."""
+    guide = (ROOT / "iphone/trade-in-guide/index.html").read_text(encoding="utf-8")
+    main_page = (ROOT / "iphone/index.html").read_text(encoding="utf-8")
+    ui = (ROOT / "iphone/trade-in-guide/ui.js").read_text(encoding="utf-8")
+    app = (ROOT / "iphone/trade-in-guide/app.js").read_text(encoding="utf-8")
+    model = (ROOT / "iphone/trade-in-guide/model.js").read_text(encoding="utf-8")
+    require(main_page, 'href="/iphone/trade-in-guide/"', "iPhone dialogue link")
+    for fragment in ('src="./model.js"', 'src="./ui.js"', 'src="./app.js"', "HK$11,500", "HK$11,499"):
+        require(guide, fragment, "trade-in guide entry and source")
+    for fragment in ('能抵 7,000', '只能抵更少', '要收 228', '要寄走检查', '不能折抵', '上门收件', '指定网点'):
+        require(app, fragment, "original option preserved")
+    for fragment in ("那我该怎么寄旧手机？", "最后报价变低", "旧手机拿回来吗？", "factoryAccept"):
+        require(app, fragment, "courier / returned-device follow-up")
+    for fragment in ("bought-return-old", "not-buy", "readyMail", "readyShop", "careBlocked"):
+        require(model, fragment, "gated purchase states")
+    require(ui, "check-circle-2", "original icon family")
+
+
 def main() -> int:
     validate_routes()
     validate_rates()
@@ -258,6 +278,7 @@ def main() -> int:
     validate_iphone_payment()
     validate_iphone_tradein_applecare()
     validate_iphone_tradein_routes()
+    validate_tradein_dialogue()
     print("PASS: static routes, fixed models, exchange rates and price deltas")
     return 0
 
