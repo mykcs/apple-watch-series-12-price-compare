@@ -24,3 +24,9 @@ jobs:
           persist-credentials: false
       - name: Run dependency-free site validator
         run: python3 scripts/validate_site.py
+      - name: Run branch outcome and script tests
+        run: |
+          node --check iphone/trade-in-guide/model.js
+          node --check iphone/trade-in-guide/ui.js
+          node --check iphone/trade-in-guide/app.js
+          node scripts/test_iphone_tradein.js
