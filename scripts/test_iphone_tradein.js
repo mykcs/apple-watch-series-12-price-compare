@@ -91,8 +91,9 @@ assert.equal(s.shopBuy,"","new blocking precondition invalidates stale buy selec
 const html=fs.readFileSync(path.join(folder,"index.html"),"utf8");
 const ui=fs.readFileSync(path.join(folder,"ui.js"),"utf8");
 const app=fs.readFileSync(path.join(folder,"app.js"),"utf8");
+const model=fs.readFileSync(path.join(folder,"model.js"),"utf8");
 for(const f of ["model.js","ui.js","app.js"])assert.ok(html.includes('src="./'+f+'"'),f+" not loaded");
 for(const t of ["能抵 7,000","只能抵更少","要收 228","要寄走检查","不能折抵",
    "那我该怎么寄旧手机？是去顺丰网点，还是你们安排收件？如果最后报价变低，我可以不同意，然后把旧手机拿回来吗？",
-   "上门收件","指定网点","拒绝折抵","已买新机"])assert.ok(ui.includes(t)||app.includes(t),"missing original choice/question/outcome: "+t);
+   "上门收件","指定网点","拒绝折抵","已买新机"])assert.ok(ui.includes(t)||app.includes(t)||model.includes(t),"missing original choice/question/outcome: "+t);
 console.log("PASS: 24 trade-in dialogue branches/invariants + source completeness");
