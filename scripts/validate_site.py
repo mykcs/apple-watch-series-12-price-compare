@@ -281,11 +281,13 @@ def validate_actual_purchase_route() -> None:
         'id="actual-route-20261013"',
         'data-purchase="completed"',
         'data-tradein="pending"',
+        'data-courier="shipped"',
         'data-source="customer-recollection"',
         "2026 年 10 月 13 日",
         "冰川蓝 · 256GB",
         "8 位验证码",
-        "香港任一顺丰网点",
+        "已到香港顺丰网点寄出旧机",
+        "已交寄",
         "HK$7,000",
         "并没有确认",
         "结果未知",
@@ -297,10 +299,15 @@ def validate_actual_purchase_route() -> None:
     ):
         require(page, fragment, "dated actual purchase timeline")
 
-    if page.count('data-stage-state="done"') != 3:
-        fail("actual route must have exactly three experienced stages")
-    if page.count('data-stage-state="pending"') != 3:
-        fail("SF email, courier drop-off and valuation must stay pending")
+    if page.count('data-stage-state="done"') != 5:
+        fail("actual route must have five witnessed or prepared stages, including SF handover")
+    if page.count('data-stage-state="pending"') != 1:
+        fail("only final valuation should remain pending")
+    require(page, 'data-route-stage="courier" data-stage-state="done"', "courier handover completed")
+    if "旧手机还没确认寄出" in page or "尚未寄出" in page:
+        fail("stale unshipped claim must not survive in actual-route page")
+    if "不臆测验证码是否使用" not in record:
+        fail("actual route must not pretend the 8-digit code was used")
     if "2026-10-13" not in record or "香港店员" not in record:
         fail("actual record must preserve witnessed testimony and uncertainty")
     if "2026-10-13 真实结局" not in main_page or "冰川蓝" not in main_page:
