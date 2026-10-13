@@ -47,3 +47,54 @@ footer{font-size:12px;color:var(--muted);padding:24px 3px 75px;line-height:1.75}
 footer p{margin:0 0 8px}
 @media(max-width:630px){.top nav{gap:8px}.top nav a:first-child{display:none}.hero{padding-top:35px}.game{padding:15px;border-radius:16px}.steps{font-size:9px;padding:9px 6px}.script blockquote{font-size:15px}.headline-stats{gap:6px}.headline-stats>div{padding:9px}.headline-stats span{font-size:10px}.headline-stats strong{font-size:16px}.game-toolbar h2{font-size:18px}.option-card{min-height:100px}}
 @media(prefers-color-scheme:dark){:root{--bg:#101012;--card:#1d1d20;--soft:#26262b;--line:#404048;--dark:#f3f3f6;--muted:#b9bbc6;--sub:#999aa8;--blue:#8dbaff;--green:#84d7a7;--red:#f0a5a5;--shadow:none}.action{background:#f0f0f4;color:#131316}}
+
+
+/* 2026-10-13: frozen real purchase path; original simulation remains unchanged. */
+.actual-route{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(15px,3vw,24px);box-shadow:var(--shadow);margin:6px 0 26px}
+.actual-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.actual-head h2{font-size:clamp(23px,4vw,30px);line-height:1.24;letter-spacing:-.04em;margin:7px 0 9px}
+.actual-head p{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+.actual-outcome{display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;border:1px solid #93cab2;color:var(--green);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:740;white-space:nowrap}
+.actual-outcome .ico{width:15px;height:15px}
+.actual-device{margin:20px 0 23px;border-radius:15px;background:var(--soft);border:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:14px}
+.actual-device-icon{width:39px;height:46px;border-radius:10px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.actual-device-icon .ico{width:25px;height:25px}
+.actual-device span:nth-child(2){flex:1;min-width:0}
+.actual-device strong{display:block;font-size:16px;line-height:1.3;letter-spacing:-.025em}
+.actual-device small{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.actual-device-right{font-size:11px;font-weight:720;color:var(--green);white-space:nowrap}
+.actual-steps{list-style:none;margin:0;padding:0}
+.actual-steps li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;position:relative;min-height:83px}
+.actual-steps li:not(:last-child):before{content:"";position:absolute;left:19px;top:43px;bottom:0;border-left:2px solid var(--line)}
+.actual-steps li.actual-done:not(:last-child):before{border-color:#8cc6aa}
+.actual-step-symbol{position:relative;z-index:1;width:40px;height:40px;border-radius:12px;background:var(--soft);color:var(--muted);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.actual-done .actual-step-symbol{background:color-mix(in srgb,var(--green) 12%,var(--card));border-color:color-mix(in srgb,var(--green) 35%,var(--line));color:var(--green)}
+.actual-step-symbol .ico{width:20px;height:20px}
+.actual-step-body{padding:0 0 21px;min-width:0}
+.actual-step-heading{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin:2px 0 6px}
+.actual-step-heading strong{font-size:15px;line-height:1.36;letter-spacing:-.015em}
+.actual-step-heading small{flex:0 0 auto;color:var(--green);font-size:11px}
+.actual-next .actual-step-heading small{color:var(--muted)}
+.actual-step-body p{font-size:13px;line-height:1.76;color:var(--muted);margin:0}
+.actual-step-body p strong{color:var(--dark)}
+.actual-step-body p em{font-style:normal;font-weight:600}
+.actual-side{border:1px dashed var(--line);border-radius:14px;padding:15px 17px;background:var(--soft);margin-top:13px}
+.actual-side-title{display:flex;gap:7px;align-items:center;font-size:14px;font-weight:750;margin-bottom:10px}
+.actual-side p{color:var(--muted);font-size:12px;line-height:1.8;margin:8px 0 0}
+.actual-side p strong{color:var(--dark)}
+.actual-summary{border-left:3px solid var(--green);padding:13px 15px;background:var(--soft);border-radius:0 12px 12px 0;margin:18px 0}
+.actual-summary strong{font-size:14px}
+.actual-summary p{margin:6px 0;font-size:13px;line-height:1.7}
+.actual-summary a{font-size:12px;font-weight:600}
+.actual-evidence{font-size:11px;color:var(--muted);margin:8px 0 0;line-height:1.8}
+@media(max-width:550px){
+ .actual-head{flex-direction:column;gap:11px}
+ .actual-head h2{font-size:23px}
+ .actual-steps li{grid-template-columns:36px minmax(0,1fr);gap:9px}
+ .actual-steps li:not(:last-child):before{left:17px;top:39px}
+ .actual-step-symbol{width:36px;height:36px}
+ .actual-step-heading strong{font-size:14px}
+ .actual-step-heading{gap:6px}
+ .actual-step-body{padding-bottom:19px}
+ .actual-device{gap:9px;padding:11px}
+}

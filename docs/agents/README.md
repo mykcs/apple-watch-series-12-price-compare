@@ -11,6 +11,7 @@ This repository is intentionally small. This file is navigation-only and does no
 | Apple Watch comparison | `watch/index.html` |
 | iPhone comparison | `iphone/index.html` |
 | iPhone 香港换机话术与分支 | `iphone/trade-in-guide/index.html`, `model.js`, `ui.js`, `app.js` |
+| iPhone 2026-10-13 实际购机路线 | `docs/decisions/2026-10-13-iphone-hk-actual-route.md` + `iphone/trade-in-guide/index.html#actual-route-20261013` |
 | Mac chooser | `mac/index.html` and the relevant `mac/*/index.html` route |
 | Current Apple price/spec/config claim | current official Apple source first, then the route HTML |
 | Exchange-rate conversion | the dated snapshot stated in `README.md` / route copy |
