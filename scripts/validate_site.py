@@ -258,7 +258,7 @@ def validate_tradein_dialogue() -> None:
     ui = (ROOT / "iphone/trade-in-guide/ui.js").read_text(encoding="utf-8")
     app = (ROOT / "iphone/trade-in-guide/app.js").read_text(encoding="utf-8")
     model = (ROOT / "iphone/trade-in-guide/model.js").read_text(encoding="utf-8")
-    require(main_page, 'href="/iphone/trade-in-guide/"', "iPhone dialogue link")
+    require(main_page, 'href="/iphone/trade-in-guide/#actual-route-20261013"', "iPhone actual route link")
     for fragment in ('src="./model.js"', 'src="./ui.js"', 'src="./app.js"', "HK$11,500", "HK$11,499"):
         require(guide, fragment, "trade-in guide entry and source")
     for fragment in ('能抵 7,000', '只能抵更少', '要收 228', '要寄走检查', '不能折抵', '上门收件', '指定网点'):
@@ -270,6 +270,45 @@ def validate_tradein_dialogue() -> None:
     require(ui, "check-circle-2", "original icon family")
 
 
+def validate_actual_purchase_route() -> None:
+    """Actual purchase path is immutable evidence, not a guessed successful Trade In."""
+    page = (ROOT / "iphone/trade-in-guide/index.html").read_text(encoding="utf-8")
+    main_page = (ROOT / "iphone/index.html").read_text(encoding="utf-8")
+    style = (ROOT / "iphone/trade-in-guide/style.css").read_text(encoding="utf-8")
+    record = (ROOT / "docs/decisions/2026-10-13-iphone-hk-actual-route.md").read_text(encoding="utf-8")
+
+    for fragment in (
+        'id="actual-route-20261013"',
+        'data-purchase="completed"',
+        'data-tradein="pending"',
+        'data-source="customer-recollection"',
+        "2026 年 10 月 13 日",
+        "冰川蓝 · 256GB",
+        "8 位验证码",
+        "香港任一顺丰网点",
+        "HK$7,000",
+        "并没有确认",
+        "结果未知",
+        "门店通常是折抵换购新产品",
+        'id="tradein-app"',
+        'src="./model.js"',
+        'src="./ui.js"',
+        'src="./app.js"',
+    ):
+        require(page, fragment, "dated actual purchase timeline")
+
+    if page.count('data-stage-state="done"') != 3:
+        fail("actual route must have exactly three experienced stages")
+    if page.count('data-stage-state="pending"') != 3:
+        fail("SF email, courier drop-off and valuation must stay pending")
+    if "2026-10-13" not in record or "香港店员" not in record:
+        fail("actual record must preserve witnessed testimony and uncertainty")
+    if "2026-10-13 真实结局" not in main_page or "冰川蓝" not in main_page:
+        fail("iPhone landing page must report purchase complete")
+    require(style, ".actual-steps", "connected actual route timeline")
+    require(style, ".actual-side", "unverified side branch styles")
+
+
 def main() -> int:
     validate_routes()
     validate_rates()
@@ -279,6 +318,7 @@ def main() -> int:
     validate_iphone_tradein_applecare()
     validate_iphone_tradein_routes()
     validate_tradein_dialogue()
+    validate_actual_purchase_route()
     print("PASS: static routes, fixed models, exchange rates and price deltas")
     return 0
 
