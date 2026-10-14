@@ -2,6 +2,10 @@
 
 **在线首页：** https://mykcs-product-selection.vercel.app
 
+**GitHub 仓库：** https://github.com/mykcs/product-selection
+
+2026-10-14 项目从 Apple Watch 专题升级为「选购商品」。为保护已有外部链接，旧网站地址 https://apple-watch-series-12-price-compare.vercel.app 仍保留可访问；新内容、入口与开发说明以本仓库和上方新首页为准。
+
 四个品类入口（原来的 Apple 页面和子页面均保留）：
 
 - 小鹰背包 Osprey：/osprey/
