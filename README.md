@@ -1,6 +1,6 @@
 # 选购商品
 
-**在线首页：** https://product-selection.vercel.app
+**在线首页：** https://mykcs-product-selection.vercel.app
 
 四个品类入口（原来的 Apple 页面和子页面均保留）：
 
