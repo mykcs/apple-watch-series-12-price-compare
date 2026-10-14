@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cheap correctness checks for the static Apple comparison site."""
+"""Cheap correctness checks for the static product selection site."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGES = (
     Path("index.html"),
     Path("watch/index.html"),
+    Path("osprey/index.html"),
     Path("iphone/index.html"),
     Path("iphone/trade-in-guide/index.html"),
     Path("mac/index.html"),
@@ -90,6 +91,28 @@ def validate_routes() -> None:
                 continue
             if target.as_posix() not in expected or not (ROOT / target).is_file():
                 fail(f"{page}: broken internal route {href!r} -> {target}")
+
+
+def validate_osprey() -> None:
+    home = (ROOT / "index.html").read_text(encoding="utf-8")
+    page = (ROOT / "osprey/index.html").read_text(encoding="utf-8")
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    require(home, "<h1>选购商品</h1>", "product selection site title")
+    require(home, 'href="/osprey/"', "backpack homepage entry")
+    require(readme, "# 选购商品", "product selection readme")
+    for fragment in (
+        'data-choice="daily"',
+        'data-choice="hike"',
+        'data-choice="travel"',
+        'data-choice="trek"',
+        "Daylite™ Plus",
+        "Talon™ 22",
+        "Farpoint™ 40",
+        "Kestrel™ 48",
+        "https://www.osprey.com/expert-advice/size-fit",
+        "aria-pressed",
+    ):
+        require(page, fragment, "Osprey chooser")
 
 
 def validate_rates() -> None:
@@ -318,6 +341,7 @@ def validate_actual_purchase_route() -> None:
 
 def main() -> int:
     validate_routes()
+    validate_osprey()
     validate_rates()
     validate_watch()
     validate_iphone()

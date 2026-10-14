@@ -1,9 +1,10 @@
-# Apple 购买对比
+# 选购商品
 
-**在线首页：** https://apple-watch-series-12-price-compare.vercel.app
+**在线首页：** https://mykcs-product-selection.vercel.app
 
-三个独立页面：
+四个品类入口（原来的 Apple 页面和子页面均保留）：
 
+- 小鹰背包 Osprey：/osprey/
 - Apple Watch Series 12：/watch/
 - iPhone 18 Pro Max 256GB：/iphone/
 - Mac 交互选择工具：/mac/
@@ -12,6 +13,10 @@
   - SSD 容量与速度：/mac/storage/
 
 ## 页面范围
+
+### 小鹰背包 Osprey
+新增独立选购入口，按日常通勤、当天徒步、旅行和多日重装四种场景给出待研究型号（Daylite Plus、Talon 22、Farpoint 40、Kestrel 48），链接均指向 Osprey 官方型号页。先核对使用场景、实际携带物品、尺码/背长、试背和购买地区；不预设用户的预算与地区，也不把其他地区的标价写成当地实时成交价。页面不保存个人输入，尚未作出最终购买决定。
+
 
 ### Apple Watch
 购买选择已收口为 46 mm 原色钛金属。页面保留原色钛金属与珍珠白陶瓷的地区价格、重量、表镜 / 表背材质与 Apple 陶瓷技术证据，作为已完成决策的记录；首页顺序降到后面。
