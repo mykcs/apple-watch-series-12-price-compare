@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -12,6 +13,7 @@ PAGES = (
     Path("index.html"),
     Path("watch/index.html"),
     Path("osprey/index.html"),
+    Path("osprey/series/index.html"),
     Path("iphone/index.html"),
     Path("iphone/trade-in-guide/index.html"),
     Path("mac/index.html"),
@@ -113,6 +115,49 @@ def validate_osprey() -> None:
         "aria-pressed",
     ):
         require(page, fragment, "Osprey chooser")
+
+
+def validate_osprey_series() -> None:
+    home = (ROOT / "index.html").read_text(encoding="utf-8")
+    chooser = (ROOT / "osprey/index.html").read_text(encoding="utf-8")
+    series_page = (ROOT / "osprey/series/index.html").read_text(encoding="utf-8")
+    app = (ROOT / "osprey/series/app.js").read_text(encoding="utf-8")
+    require(home, "18 个常见系列", "Osprey homepage overview")
+    require(chooser, 'href="/osprey/series/"', "Osprey two-way navigation")
+    require(chooser, 'id="series-detail"', "Osprey deep link from use case")
+    for fragment in ('id="family-list"', 'id="family-detail"', 'data-filter="backpacking"',
+                     'id="series-search"', 'src="./app.js"', '2026-10-14'):
+        require(series_page, fragment, "Osprey series browser")
+    for fragment in ('fetch("./catalog.json"', 'aria-pressed', 'priceUsd',
+                     'seriesUrl', 'visibleFamilies', 'currentFamily'):
+        require(app, fragment, "Osprey series app")
+    catalogue = json.loads((ROOT / "osprey/series/catalog.json").read_text(encoding="utf-8"))
+    if catalogue.get("checkedAt") != "2026-10-14" or catalogue.get("currency") != "USD":
+        fail("Osprey snapshot date/market/currency must remain explicit")
+    families = catalogue.get("families", [])
+    if len(families) != 18 or sum(len(f.get("products", [])) for f in families) != 36:
+        fail("Osprey documented 18 series / 36 representative products contract")
+    ids = [family.get("id") for family in families]
+    if len(ids) != len(set(ids)):
+        fail("Duplicate Osprey series id")
+    allowed = set(catalogue.get("categoryLabels", {}))
+    for family in families:
+        if family.get("category") not in allowed:
+            fail(f"Osprey family category missing: {family.get('id')}")
+        if not all(isinstance(family.get(k), str) and family[k].strip()
+                   for k in ("name", "tagline", "intro", "bestFor", "caution")):
+            fail(f"Osprey family incomplete: {family.get('id')}")
+        if not family.get("seriesUrl", "").startswith("https://www.osprey.com/"):
+            fail(f"Osprey series link not official: {family.get('id')}")
+        for product in family["products"]:
+            if (not isinstance(product.get("priceUsd"), (int, float))
+                    or isinstance(product.get("priceUsd"), bool) or product["priceUsd"] <= 0):
+                fail(f"Missing positive Osprey USD snapshot price: {product.get('name')}")
+            if not all(isinstance(product.get(k), str) and product[k].strip()
+                       for k in ("name", "volume", "description")):
+                fail(f"Incomplete Osprey product: {product.get('name')}")
+            if not product.get("url", "").startswith("https://www.osprey.com/"):
+                fail(f"Osprey product link not official: {product.get('name')}")
 
 
 def validate_rates() -> None:
@@ -342,6 +387,7 @@ def validate_actual_purchase_route() -> None:
 def main() -> int:
     validate_routes()
     validate_osprey()
+    validate_osprey_series()
     validate_rates()
     validate_watch()
     validate_iphone()

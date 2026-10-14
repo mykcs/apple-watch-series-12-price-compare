@@ -15,7 +15,7 @@ Do not recursively read every page for a one-route edit.
 - Human-facing scope and comparison intent → `README.md`.
 - Rendered content and interaction → the relevant route `index.html`.
 - Apple prices, education-store availability, product configurations, technical specifications and purchase URLs → current official Apple pages; re-verify before changing dated/current claims.
-- Osprey backpack models, fit, volume, and purchase URLs → official Osprey pages; do not invent a local-market price, sizing result or fit guarantee.
+- Osprey backpack models, fit, volume, and purchase URLs → official Osprey pages; do not invent a local-market price, sizing result or fit guarantee. The only product-family catalogue and dated US price snapshot is `osprey/series/catalog.json`, with verification policy in `docs/decisions/2026-10-14-osprey-series-us-prices.md`. Never claim prices are live or copy prices into a second source of truth.
 - Exchange-rate claims → the explicitly dated snapshot documented in the site; do not silently mix dates.
 - Deployment/provider status → live Vercel state when a deployment claim matters. Repository prose is not proof that a deployment is currently healthy.
 

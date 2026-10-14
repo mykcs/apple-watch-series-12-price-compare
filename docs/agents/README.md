@@ -9,7 +9,8 @@ This repository is intentionally small. This file is navigation-only and does no
 | Overall site scope | `README.md` |
 | Homepage/navigation | `index.html` |
 | Apple Watch comparison | `watch/index.html` |
-| Osprey backpack chooser | `osprey/index.html` |
+| Osprey backpack use-case chooser | `osprey/index.html` |
+| Osprey series and price catalogue | `osprey/series/index.html`, `app.js`, `catalog.json`; evidence: `docs/decisions/2026-10-14-osprey-series-us-prices.md` |
 | iPhone comparison | `iphone/index.html` |
 | iPhone 香港换机话术与分支 | `iphone/trade-in-guide/index.html`, `model.js`, `ui.js`, `app.js` |
 | iPhone 2026-10-13 实际购机路线 | `docs/decisions/2026-10-13-iphone-hk-actual-route.md` + `iphone/trade-in-guide/index.html#actual-route-20261013` |
@@ -26,7 +27,7 @@ The site contains both durable structure and time-sensitive purchasing facts.
 Treat:
 - route structure and explanation design as repository-owned;
 - current product availability, prices, specs and education-store state as external/live facts that must be refreshed;
-- dated exchange rates as snapshots, not timeless truth.
+- dated exchange rates and dated Osprey US prices as snapshots, not timeless truth.
 
 ## Agent continuity
 

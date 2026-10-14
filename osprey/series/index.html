@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="小鹰 Osprey 背包系列目录：按照系列浏览 18 个常见家族，逐一了解用途、代表产品、美国官网参考价格与产品链接。">
+<title>小鹰有哪些系列？｜选购商品</title>
+<style>
+:root{color-scheme:light;--bg:#f5f6f3;--paper:#fff;--ink:#1e2921;--sub:#626c63;--line:#dde4dc;--moss:#35654a;--moss-strong:#244734;--tint:#eff5ee;--gold:#b4bfa2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft Yahei",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}
+a{color:var(--moss);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #78ab82;outline-offset:3px}
+.wrap{max-width:1170px;padding:0 24px;margin:auto}
+.top{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:25px 0;font-size:13px}
+.top a{font-weight:700}
+.crumb{color:var(--sub)}
+.eyebrow{font-size:12px;letter-spacing:.145em;font-weight:800;color:var(--moss)}
+.hero{padding:61px 0 31px}
+.hero h1{font-size:clamp(43px,6.7vw,77px);letter-spacing:-.068em;line-height:1.06;margin:11px 0 18px;font-weight:750}
+.lead{max-width:685px;font-size:18px;line-height:1.7;color:var(--sub);margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}
+.meta span{display:inline-flex;align-items:center;gap:6px;background:#eaf0e7;color:#3e5946;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:650}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:13px;padding:19px 0 35px}
+.path{display:block;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:23px 26px;color:var(--ink);transition:transform .2s,box-shadow .2s}
+.path:hover{text-decoration:none;transform:translateY(-2px);box-shadow:0 12px 32px rgba(25,48,28,.08)}
+.path.active{background:var(--moss-strong);color:#fff;border-color:var(--moss-strong)}
+.path .head{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.path .label{font-size:20px;letter-spacing:-.035em;font-weight:750}
+.path .arrow{font-size:20px}
+.path .desc{font-size:13px;display:block;margin-top:5px;color:var(--sub)}
+.path.active .desc{color:#d2e3d5}
+.section-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin:9px 0 19px}
+.section-intro h2{font-size:30px;letter-spacing:-.05em;margin:0 0 2px}
+.section-intro p{margin:0;color:var(--sub);font-size:14px}
+.counter{font-size:13px;color:var(--sub);white-space:nowrap}
+.tools{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:13px;padding:16px 0 23px}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.filter{cursor:pointer;background:transparent;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-weight:660;font-size:13px}
+.filter[aria-pressed="true"]{color:white;background:var(--moss-strong);border-color:var(--moss-strong)}
+.filter:hover:not([aria-pressed="true"]){border-color:var(--moss);color:var(--moss)}
+.search{background:var(--paper);border:1px solid var(--line);border-radius:999px;min-width:207px;max-width:100%;padding:10px 15px;font-size:13px;color:var(--ink)}
+.search::placeholder{color:#909990}
+.browser{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);align-items:start;gap:19px}
+.families{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.family{min-width:0;background:var(--paper);text-align:left;border:1px solid var(--line);border-radius:21px;padding:19px 18px 17px;min-height:174px;cursor:pointer;color:var(--ink);transition:background .18s,border-color .18s,transform .18s}
+.family:hover{border-color:#8aa88d;transform:translateY(-1px)}
+.family[aria-pressed="true"]{border-color:var(--moss);background:#edf4ed;box-shadow:inset 0 0 0 1px var(--moss)}
+.family .category{font-size:11px;text-transform:uppercase;letter-spacing:.045em;color:var(--moss);font-weight:750}
+.family .name{display:block;margin:12px 0 7px;font-size:20px;line-height:1.16;letter-spacing:-.047em;font-weight:760;overflow-wrap:anywhere}
+.family .tagline{display:block;color:var(--sub);font-size:12px;line-height:1.5}
+.family .from{display:flex;align-items:end;justify-content:space-between;gap:7px;margin-top:21px;padding-top:11px;border-top:1px solid var(--line)}
+.family .from span{font-size:12px;color:var(--sub)}
+.family .from strong{font-weight:750;font-size:17px;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}
+.detail{position:sticky;top:16px;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:27px 28px;min-width:0;scroll-margin-top:20px;box-shadow:0 16px 54px rgba(29,50,29,.055)}
+.detail .step{font-size:11px;font-weight:750;letter-spacing:.12em;color:var(--moss)}
+.detail h3{font-size:clamp(27px,3vw,37px);letter-spacing:-.06em;line-height:1.15;margin:8px 0 12px;overflow-wrap:anywhere}
+.detail .intro{font-size:14px;color:var(--sub);margin:0;line-height:1.68}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:19px 0 21px}
+.why>div{border-radius:13px;background:var(--tint);padding:13px}
+.why .hint{font-size:11px;font-weight:760;color:var(--moss)}
+.why p{font-size:12px;color:var(--ink);margin:5px 0 0;line-height:1.55}
+.subhead{display:flex;justify-content:space-between;align-items:baseline;gap:7px;margin:22px 0 12px}
+.subhead h4{font-size:16px;letter-spacing:-.035em;margin:0}
+.subhead span{font-size:11px;color:var(--sub)}
+.product{padding:15px 0;border-top:1px solid var(--line)}
+.producthead{display:flex;justify-content:space-between;align-items:baseline;gap:11px}
+.product h5{font-size:16px;letter-spacing:-.03em;margin:0;line-height:1.3;overflow-wrap:anywhere}
+.product .price{font-size:22px;line-height:1.1;letter-spacing:-.055em;font-weight:780;color:var(--ink);white-space:nowrap}
+.product .volume{font-size:11px;color:var(--moss);font-weight:730;margin:5px 0 7px}
+.product p{font-size:12px;line-height:1.7;margin:0 0 10px;color:var(--sub)}
+.product a{font-size:12px;font-weight:740}
+.detail-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:17px;margin-top:8px}
+.series-link{font-size:13px;font-weight:730}
+.back-to-list{display:none;cursor:pointer;border:0;background:none;color:var(--moss);font-size:13px;font-weight:700;padding:6px 0}
+.note{margin:25px 0 20px;padding:19px 22px;border:1px solid var(--line);border-radius:19px;background:var(--paper)}
+.note h3{font-size:16px;letter-spacing:-.03em;margin:0 0 5px}
+.note p{font-size:12px;line-height:1.75;color:var(--sub);margin:0}
+.footer{font-size:12px;color:var(--sub);padding:12px 0 80px}
+.empty{grid-column:1/-1;border-radius:20px;padding:28px 22px;background:var(--paper);color:var(--sub);font-size:14px}
+.skeleton{padding:30px;border-radius:24px;background:var(--paper);color:var(--sub)}
+[hidden]{display:none!important}
+@media(max-width:1020px){.browser{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.families{grid-template-columns:1fr}.family{min-height:auto}}
+@media(max-width:760px){.hero{padding:39px 0 23px}.paths{padding:12px 0 31px;gap:9px}.path{padding:18px 16px;border-radius:18px}.path .label{font-size:16px}.path .desc{font-size:12px}.section-intro{align-items:start}.section-intro h2{font-size:27px}.browser{display:block}.families{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.detail{position:relative;top:auto;margin-top:15px;padding:24px}.back-to-list{display:inline-block}.search{flex:1;min-width:170px}.family{min-height:158px;padding:16px 13px}.families>.detail{grid-column:1/-1;margin-top:0}.family .name{font-size:17px}.why{gap:9px}.family .from strong{font-size:15px}.family .tagline{font-size:12px}}
+@media(max-width:410px){.wrap{padding:0 18px}.families{grid-template-columns:1fr}.family{min-height:auto}.family .from{margin-top:12px}.hero h1{font-size:42px}.lead{font-size:16px}.meta{gap:6px}.meta span{font-size:11px;padding:6px 9px}.tools{gap:12px}.filters{gap:6px}.filter{padding:8px 11px}.why{grid-template-columns:1fr}.price{font-size:20px}}
+@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#121713;--paper:#1c251e;--ink:#edf3ed;--sub:#c2cfc3;--line:#374538;--moss:#9ed2ad;--moss-strong:#315940;--tint:#28392c}.meta span{background:#26382b;color:#c6ddcb}.family[aria-pressed="true"]{background:#293b2d}.path.active{background:#315940}.search::placeholder{color:#a3aea4}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top">
+<a href="/">← 选购商品</a>
+<div class="crumb"><a href="/osprey/">小鹰背包</a> ／ 系列目录</div>
+</header>
+<section class="hero">
+<div class="eyebrow">OSPREY · COLLECTION GUIDE</div>
+<h1>小鹰都有哪些系列？</h1>
+<p class="lead">先认识每个系列解决什么问题，再点开看代表型号、产品介绍和参考价格。不需要记住全部名字，你只需要找到适合自己的那一组。</p>
+<div class="meta">
+<span id="catalog-count">18 个常见系列</span>
+<span>36 款代表型号</span>
+<span>美国官网 USD · 核对于 2026-10-14</span>
+</div>
+</section>
+<nav class="paths" aria-label="小鹰背包两种选购方式">
+<a class="path" href="/osprey/">
+<span class="head"><span class="label">01 · 按用途选</span><span class="arrow" aria-hidden="true">↗</span></span>
+<span class="desc">不知道型号？从你的使用场景开始</span>
+</a>
+<a class="path active" aria-current="page" href="/osprey/series/">
+<span class="head"><span class="label">02 · 按系列看</span><span class="arrow" aria-hidden="true">✓</span></span>
+<span class="desc">认识产品家族，逐一看型号和价格</span>
+</a>
+</nav>
+<section id="browse" aria-label="小鹰系列浏览器">
+<div class="section-intro">
+<div><div class="eyebrow">EXPLORE THE COLLECTIONS</div><h2>挑一个系列，深入看看</h2><p>点击任意系列，展开产品介绍与价格；也可以按类别筛选或搜索名字。</p></div>
+<div class="counter" id="result-count" aria-live="polite">读取中…</div>
+</div>
+<div class="tools">
+<div class="filters" role="group" aria-label="系列类型筛选">
+<button type="button" class="filter" data-filter="all" aria-pressed="true">全部</button>
+<button type="button" class="filter" data-filter="daily" aria-pressed="false">日常通勤</button>
+<button type="button" class="filter" data-filter="hiking" aria-pressed="false">一日徒步</button>
+<button type="button" class="filter" data-filter="backpacking" aria-pressed="false">多日重装</button>
+<button type="button" class="filter" data-filter="travel" aria-pressed="false">旅行</button>
+<button type="button" class="filter" data-filter="technical" aria-pressed="false">专业运动</button>
+</div>
+<input class="search" type="search" id="series-search" autocomplete="off" aria-label="搜索小鹰系列或产品型号" placeholder="搜索系列 / 产品，如 Talon">
+</div>
+<div class="browser">
+<div class="families" id="family-list" aria-label="系列列表"><div class="skeleton">正在读取 Osprey 系列目录…</div></div>
+<section class="detail" id="family-detail" aria-live="polite" aria-label="选中的系列详细介绍" tabindex="-1">
+<div class="skeleton">选一个系列，查看具体型号和价格。</div>
+</section>
+</div>
+</section>
+<section class="note">
+<h3>关于价格和系列覆盖范围</h3>
+<p>本目录按 Osprey 美国官方网站于 2026 年 10 月 14 日所列的公开价格制作快照，金额单位为美元（USD）。非自动同步实时售价，不含其他地区的运费和税费；促销、颜色、尺码、库存均可能变化。男女版型名称仅表示官方设计方向，不代替背长测量和实际试背。这里收录 18 个常见系列与每个系列的两款代表型号，其他骑行、雪地、亲子等专业产品可继续查看 <a href="https://www.osprey.com/featured/shop-by-collections" target="_blank" rel="noopener noreferrer">Osprey 官方完整系列入口 ↗</a>。</p>
+</section>
+<footer class="footer">资料：<a href="https://www.osprey.com/" target="_blank" rel="noopener noreferrer">Osprey 美国官网</a> · <a href="https://www.osprey.com/expert-advice/size-fit" target="_blank" rel="noopener noreferrer">背包尺寸与试背指南</a> · <a href="/osprey/">返回按用途选</a></footer>
+</main>
+<script src="./app.js" defer></script>
+</body>
+</html>

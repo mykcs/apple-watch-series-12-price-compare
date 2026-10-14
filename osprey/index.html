@@ -39,6 +39,15 @@ dt{font-size:12px;color:var(--muted)}dd{font-size:16px;font-weight:700;margin:4p
 .checklist label{display:flex;gap:10px;align-items:start;font-size:14px;color:var(--muted);padding:7px 0}
 input[type="checkbox"]{accent-color:var(--green);width:17px;height:17px;margin-top:3px}
 .foot{font-size:12px;color:var(--muted);padding:15px 0 70px}
+.mode-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0;margin:0 0 18px}
+.mode{display:block;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 22px;text-decoration:none;color:var(--text);min-width:0}
+.mode strong{font-size:18px;display:block;letter-spacing:-.03em}
+.mode span{font-size:13px;color:var(--muted);display:block;margin-top:4px}
+.mode.active{background:var(--green);border-color:var(--green);color:white}
+.mode.active span{color:#e3eee6}
+.mode:hover{border-color:var(--green);text-decoration:none}
+@media(max-width:640px){.mode-nav{grid-template-columns:1fr;gap:9px}.mode{padding:15px 19px}}
+@media(prefers-color-scheme:dark){.mode.active{background:#315940;color:white}}
 [hidden]{display:none!important}
 @media(max-width:640px){.hero{padding:35px 0}.panel{padding:22px}.choices,.checklist{grid-template-columns:1fr}nav{padding:20px 0}.model-facts{gap:7px}}
 @media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#111511;--card:#1d241e;--text:#f1f6f0;--muted:#c0ccc1;--line:#374339;--green:#8dd2a3;--soft:#263c2c;--shadow:none}.action{background:#9cd3ac;color:#142618}}
@@ -52,6 +61,10 @@ input[type="checkbox"]{accent-color:var(--green);width:17px;height:17px;margin-t
 <h1>小鹰背包，怎么选？</h1>
 <p>先回答一个问题：主要用它做什么？按用途给出一款值得研究的候选包，再确认背负是否合身、尺寸和购买地区。</p>
 </section>
+<nav class="mode-nav" aria-label="小鹰背包两种选购方式">
+<a class="mode active" href="/osprey/" aria-current="page"><strong>01 · 按用途选 ✓</strong><span>回答使用场景，找到一个值得研究的型号</span></a>
+<a class="mode" href="/osprey/series/"><strong>02 · 按系列看 →</strong><span>18 个常见系列 · 36 款代表型号 · 官网参考价</span></a>
+</nav>
 <section class="panel" aria-labelledby="scenario-heading">
 <h2 id="scenario-heading">01 · 你主要拿它做什么？</h2>
 <p>点击一个最接近的场景。这里给的是开始比较的候选型号，不是未试背就能直接下单的结论。</p>
@@ -72,6 +85,7 @@ input[type="checkbox"]{accent-color:var(--green);width:17px;height:17px;margin-t
 </dl>
 <div class="actions">
 <a class="action" id="official" href="https://www.osprey.com/" target="_blank" rel="noopener noreferrer">查看 Osprey 官方型号 ↗</a>
+<a class="minor" id="series-detail" href="/osprey/series/">看所属系列其他型号 ↗</a>
 <a class="minor" href="https://www.osprey.com/expert-advice/size-fit" target="_blank" rel="noopener noreferrer">官方背包尺码指南 ↗</a>
 </div>
 </section>
@@ -86,15 +100,15 @@ input[type="checkbox"]{accent-color:var(--green);width:17px;height:17px;margin-t
 <label><input type="checkbox">确认购买地区、售价、库存及退换政策</label>
 </div>
 </section>
-<p class="foot">资料依据：Osprey 官方型号页面与 <a href="https://www.osprey.com/expert-advice/size-fit" target="_blank" rel="noopener noreferrer">Size &amp; Fit 指南</a>。容量随部分尺码变化；旅行随身行李限制依航司和航线而异。本站未固定地区和实时售价，避免把其他市场的价格当作当前成交价。</p>
+<p class="foot">资料依据：Osprey 官方型号页面与 <a href="https://www.osprey.com/expert-advice/size-fit" target="_blank" rel="noopener noreferrer">Size &amp; Fit 指南</a>。容量随部分尺码变化；旅行随身行李限制依航司和航线而异。本站按用途页不预设购买地区；<a href="/osprey/series/">按系列页</a>提供单独标注日期的美国官网美元参考价格，不等于其他地区的实时成交价。</p>
 </main>
 <script>
 "use strict";
 const choices={
-  daily:{model:"Daylite™ Plus",volume:"20 L",caution:"电脑尺寸与实际收纳",reason:"适合作为城市日常和短途出行的起点。带电子设备时，要实际量内胆并核对防护需求。",url:"https://www.osprey.com/daylite-plus-dayltpluss21-795"},
-  hike:{model:"Talon™ 22",volume:"22 L",caution:"背长、贴身度与负重",reason:"针对当天徒步和多种运动场景；背负感受和个人体型需要实地试背，别只看容量。",url:"https://www.osprey.com/talontm-1"},
-  travel:{model:"Farpoint™ 40",volume:"40 L",caution:"航司手提行李限制",reason:"面向旅行收纳和途中背负，可作为行李箱替代方案的候选。是否能登机仍需逐航司核对。",url:"https://www.osprey.com/farpointtm-40-travel-pack-1"},
-  trek:{model:"Kestrel™ 48",volume:"46–48 L（依尺码）",caution:"背长、腰带与重装试背",reason:"面向多日徒步与较重装备的候选。S/M 和 L/XL 的容量不同，按实际装备和合身程度决定。",url:"https://www.osprey.com/kestrel-48-kestrel48s23-453"}
+  daily:{seriesId:"daylite",model:"Daylite™ Plus",volume:"20 L",caution:"电脑尺寸与实际收纳",reason:"适合作为城市日常和短途出行的起点。带电子设备时，要实际量内胆并核对防护需求。",url:"https://www.osprey.com/daylite-plus-dayltpluss21-795"},
+  hike:{seriesId:"talon-tempest",model:"Talon™ 22",volume:"22 L",caution:"背长、贴身度与负重",reason:"针对当天徒步和多种运动场景；背负感受和个人体型需要实地试背，别只看容量。",url:"https://www.osprey.com/talontm-1"},
+  travel:{seriesId:"farpoint-fairview",model:"Farpoint™ 40",volume:"40 L",caution:"航司手提行李限制",reason:"面向旅行收纳和途中背负，可作为行李箱替代方案的候选。是否能登机仍需逐航司核对。",url:"https://www.osprey.com/farpointtm-40-travel-pack-1"},
+  trek:{seriesId:"kestrel-kyte",model:"Kestrel™ 48",volume:"46–48 L（依尺码）",caution:"背长、腰带与重装试背",reason:"面向多日徒步与较重装备的候选。S/M 和 L/XL 的容量不同，按实际装备和合身程度决定。",url:"https://www.osprey.com/kestrel-48-kestrel48s23-453"}
 };
 const buttons=[...document.querySelectorAll("[data-choice]")];
 for(const button of buttons){
@@ -107,6 +121,7 @@ for(const button of buttons){
   document.getElementById("reason").textContent=item.reason;
   document.getElementById("caution").textContent=item.caution;
   document.getElementById("official").href=item.url;
+  document.getElementById("series-detail").href="/osprey/series/#"+item.seriesId;
   const panel=document.getElementById("result");
   panel.hidden=false;
   panel.scrollIntoView({behavior:"smooth",block:"nearest"});
