@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-14",
+  "country": "美国",
+  "currency": "USD",
+  "pricing": "2026-10-14 在 Osprey 美国官网公开页面核对的参考价格；以实际结账、尺码、颜色和优惠情况为准。",
+  "scope": "按官网官方系列页分组收录的 18 个常见系列（相近版型合并为一个家族），每个系列挑选两款代表产品；并非全部 SKU。",
+  "categoryLabels": {
+    "daily": "日常与通勤",
+    "hiking": "一日徒步",
+    "backpacking": "多日重装",
+    "travel": "旅行与装备",
+    "technical": "专业攀登"
+  },
+  "families": [
+    {
+      "id": "daylite",
+      "name": "Daylite",
+      "category": "daily",
+      "tagline": "最轻松的城市日常",
+      "intro": "主打简洁、轻便和灵活使用：上班、周末短途都能用。",
+      "bestFor": "想要一个不复杂、日常随手背的包",
+      "caution": "重负荷徒步时应看专用背负系列",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/daylite",
+      "products": [
+        {
+          "name": "Daylite Plus",
+          "volume": "20 L",
+          "priceUsd": 80,
+          "description": "比基础版多一些储物空间和收纳分区，适合日常与城市短途。",
+          "url": "https://www.osprey.com/daylite-plus-dayltpluss21-795"
+        },
+        {
+          "name": "Daylite",
+          "volume": "13 L",
+          "priceUsd": 70,
+          "description": "容量更小，适合只带水、外套和少量随身用品。",
+          "url": "https://www.osprey.com/daylite-daylites21-794"
+        }
+      ]
+    },
+    {
+      "id": "arcane",
+      "name": "Arcane",
+      "category": "daily",
+      "tagline": "更像城市穿搭的一部分",
+      "intro": "造型克制、日常收纳友好，与技术型徒步包的外观和用途不同。",
+      "bestFor": "想要通勤与城市生活感兼顾",
+      "caution": "徒步背负、透气系统不是其核心卖点",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/arcane",
+      "products": [
+        {
+          "name": "Arcane XL Day",
+          "volume": "城市大容量",
+          "priceUsd": 140,
+          "description": "偏通勤的简洁大包，设有电脑收纳区；电脑适配需核对具体尺寸。",
+          "url": "https://www.osprey.com/osprey-arcane-xl-day-arcanxlday-199"
+        },
+        {
+          "name": "Arcane Tote Pack",
+          "volume": "手提 / 双肩切换",
+          "priceUsd": 135,
+          "description": "通勤与城市购物兼用，可在托特与背包形式之间切换。",
+          "url": "https://www.osprey.com/osprey-arcanetm-tote-pack-8"
+        }
+      ]
+    },
+    {
+      "id": "aoede",
+      "name": "Aoede",
+      "category": "daily",
+      "tagline": "商务与城市出行",
+      "intro": "比普通日用包更注重外观与办公场景；适合电脑、文件与多种通勤方式。",
+      "bestFor": "上班需要稳妥的设备与文件收纳",
+      "caution": "不以多日户外负重作为设计重点",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/aoede",
+      "products": [
+        {
+          "name": "Aoede AirSpeed Backpack",
+          "volume": "日常 / 通勤",
+          "priceUsd": 160,
+          "description": "城市款与 AirSpeed 透气背板组合，适合日常通勤。",
+          "url": "https://www.osprey.com/aoede-airspeed-backpack-aoedasbp20f23-451"
+        },
+        {
+          "name": "Aoede Briefpack",
+          "volume": "多种携带方式",
+          "priceUsd": 170,
+          "description": "可在多种携带方式间切换，偏办公室和商务通勤场景。",
+          "url": "https://www.osprey.com/aoede-briefpack-aoedbfpk22f23-550"
+        }
+      ]
+    },
+    {
+      "id": "metron",
+      "name": "Metron",
+      "category": "daily",
+      "tagline": "骑车通勤优先",
+      "intro": "把骑行通勤中的背负稳定、通勤整理与天气应对放在前面。",
+      "bestFor": "主要使用自行车上班、希望携带电脑",
+      "caution": "普通步行通勤未必需要骑行专用设计",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/metron",
+      "products": [
+        {
+          "name": "Metron 24 Pack",
+          "volume": "24 L",
+          "priceUsd": 190,
+          "description": "面向骑行通勤的日常装备与随身收纳。",
+          "url": "https://www.osprey.com/metron-24-pack-2"
+        },
+        {
+          "name": "Metron AirSpeed 34",
+          "volume": "34 L",
+          "priceUsd": 230,
+          "description": "容量更大，偏需要装下更多工作或骑行用品的通勤者。",
+          "url": "https://www.osprey.com/metron-airspeed-34"
+        }
+      ]
+    },
+    {
+      "id": "talon-tempest",
+      "name": "Talon / Tempest",
+      "category": "hiking",
+      "tagline": "运动中的贴合与灵活",
+      "intro": "多运动路线的经典系列，强调运动状态下的稳定性和贴身背负。",
+      "bestFor": "快速徒步、运动量大的户外活动",
+      "caution": "不以大体积露营重装为主要用途",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/talon-tempest",
+      "products": [
+        {
+          "name": "Talon 22",
+          "volume": "22 L",
+          "priceUsd": 175,
+          "description": "适合当天运动型徒步；关注背长调节与运动中的贴合度。",
+          "url": "https://www.osprey.com/featured/shop-by-collections/talon-tempest"
+        },
+        {
+          "name": "Tempest 22",
+          "volume": "22 L",
+          "priceUsd": 175,
+          "description": "同方向的另一背负版型，优先试穿确认肩带与腰带是否合身。",
+          "url": "https://www.osprey.com/tempesttm-22"
+        }
+      ]
+    },
+    {
+      "id": "hikelite",
+      "name": "Hikelite",
+      "category": "hiking",
+      "tagline": "轻量徒步的直观入门",
+      "intro": "结构相对简洁、强调背负通风，适合从城市步行走向山间一日路线。",
+      "bestFor": "想要专门的日行徒步包",
+      "caution": "复杂技术路线需要考虑专业附件和支撑",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/hikelite",
+      "products": [
+        {
+          "name": "Hikelite 18",
+          "volume": "18 L",
+          "priceUsd": 125,
+          "description": "轻量日行包，官网配置包含防雨罩；适合精简装备。",
+          "url": "https://www.osprey.com/hikelite-18l"
+        },
+        {
+          "name": "Hikelite LT 22",
+          "volume": "22 L",
+          "priceUsd": 110,
+          "description": "LT 子系列设计更简化，适合重视轻便与入门成本的人。",
+          "url": "https://www.osprey.com/hikelite-lt-22"
+        }
+      ]
+    },
+    {
+      "id": "sportlite",
+      "name": "Sportlite",
+      "category": "hiking",
+      "tagline": "轻、稳、少负担",
+      "intro": "以精简、轻量和运动稳定性为卖点，覆盖短途至较长的单日徒步。",
+      "bestFor": "希望控制自重，日行徒步装备不复杂",
+      "caution": "不等于高负重的多日露营包",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/sportlite-family",
+      "products": [
+        {
+          "name": "Sportlite 20",
+          "volume": "20 L",
+          "priceUsd": 90,
+          "description": "适合常规一日徒步；重量与收纳复杂度相对克制。",
+          "url": "https://www.osprey.com/sportlite-20"
+        },
+        {
+          "name": "Sportlite 30",
+          "volume": "30 L",
+          "priceUsd": 135,
+          "description": "空间更宽松，适合当天装备明显更多的行程。",
+          "url": "https://www.osprey.com/sportlite-30"
+        }
+      ]
+    },
+    {
+      "id": "stratos-sirrus",
+      "name": "Stratos / Sirrus",
+      "category": "hiking",
+      "tagline": "重视通风与全天舒适",
+      "intro": "透气悬挂背板、丰富口袋和户外舒适性是关键特征。",
+      "bestFor": "希望背部更透气、重视背负舒适的日行者",
+      "caution": "比极简轻量包更重视完整功能",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/stratos-sirrus-family",
+      "products": [
+        {
+          "name": "Stratos 24",
+          "volume": "24 L",
+          "priceUsd": 200,
+          "description": "面向单日徒步的舒适型背负，配有防雨罩。",
+          "url": "https://www.osprey.com/stratos-1"
+        },
+        {
+          "name": "Sirrus 24",
+          "volume": "24 L",
+          "priceUsd": 200,
+          "description": "与 Stratos 同家族但版型不同，仍需以个人试背结果为准。",
+          "url": "https://www.osprey.com/sirrus-24"
+        }
+      ]
+    },
+    {
+      "id": "manta-mira",
+      "name": "Manta / Mira",
+      "category": "hiking",
+      "tagline": "补水系统一体化",
+      "intro": "徒步舒适系统之外还配备官方水袋，更适合喝水频繁的日行路线。",
+      "bestFor": "经常户外行走，偏好水袋与管路补水",
+      "caution": "如果无需水袋，性价比应与 Stratos 对照",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/manta-mira",
+      "products": [
+        {
+          "name": "Manta 24",
+          "volume": "24 L",
+          "priceUsd": 220,
+          "description": "包含 Hydraulics LT 2.5 L 水袋，适合需要高频补水的日行。",
+          "url": "https://www.osprey.com/manta-24-w-res"
+        },
+        {
+          "name": "Mira 24",
+          "volume": "24 L",
+          "priceUsd": 220,
+          "description": "同为带水袋的徒步系列，强调另一背负版型的舒适。",
+          "url": "https://www.osprey.com/mira-24-w-res"
+        }
+      ]
+    },
+    {
+      "id": "kestrel-kyte",
+      "name": "Kestrel / Kyte",
+      "category": "backpacking",
+      "tagline": "耐用、粗犷的多日背包",
+      "intro": "适合较复杂的徒步条件与较重装备，属于偏耐用的户外背包系列。",
+      "bestFor": "多日徒步、装备较多、需要耐用设计",
+      "caution": "较轻的日行路线未必需要这么大的背负系统",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/kestrel-kyte-family",
+      "products": [
+        {
+          "name": "Kestrel 48",
+          "volume": "46–48 L（随尺码）",
+          "priceUsd": 240,
+          "description": "适合多日装备与复杂路线，容量可能随背负尺码变化。",
+          "url": "https://www.osprey.com/kestrel-48-kestrel48s23-453"
+        },
+        {
+          "name": "Kyte 48",
+          "volume": "随尺码变化",
+          "priceUsd": 240,
+          "description": "同家族另一背负版型，负重试背比单看标称容量更重要。",
+          "url": "https://www.osprey.com/kyte-48-kyte48s23-550"
+        }
+      ]
+    },
+    {
+      "id": "atmos-aura",
+      "name": "Atmos / Aura AG",
+      "category": "backpacking",
+      "tagline": "舒适与透气的多日背负",
+      "intro": "以 AntiGravity 悬挂背负见长，关注长距离背包旅行中的重量分配与透气。",
+      "bestFor": "多日徒步且特别看重背负舒适",
+      "caution": "与轻量 Exos / Eja 的取舍需要看装载重量",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/new-atmos-aura-ag",
+      "products": [
+        {
+          "name": "Atmos AG 65",
+          "volume": "65 L 系列",
+          "priceUsd": 370,
+          "description": "适合多日长距离背负；AntiGravity 是此家族的主要设计区别。",
+          "url": "https://www.osprey.com/atmos-ag-65-atmos65s22-415"
+        },
+        {
+          "name": "Aura AG 65",
+          "volume": "65 L 系列",
+          "priceUsd": 370,
+          "description": "同属 AntiGravity 舒适路线，提供不同背负版型。",
+          "url": "https://www.osprey.com/aura-ag-65-aura65s22-224"
+        }
+      ]
+    },
+    {
+      "id": "exos-eja",
+      "name": "Exos / Eja",
+      "category": "backpacking",
+      "tagline": "轻量长线徒步",
+      "intro": "在多日背包中更重视降低重量，同时维持通风和必要的装载能力。",
+      "bestFor": "希望轻量化而又需要多日背负",
+      "caution": "承载特别重的装备时应比较 Aether / Ariel",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/new-exos-eja",
+      "products": [
+        {
+          "name": "Exos 48",
+          "volume": "48 L 系列",
+          "priceUsd": 265,
+          "description": "轻量多日包，适合装备已做适度减重的背包客。",
+          "url": "https://www.osprey.com/exos-48-exos48s22-418"
+        },
+        {
+          "name": "Eja 48",
+          "volume": "48 L 系列",
+          "priceUsd": 265,
+          "description": "同类轻量方向，不同背负版型；先比合身再比重量。",
+          "url": "https://www.osprey.com/eja-48-eja48s22-290"
+        }
+      ]
+    },
+    {
+      "id": "aether-ariel",
+      "name": "Aether / Ariel",
+      "category": "backpacking",
+      "tagline": "为较重负载提供支撑",
+      "intro": "强调重装承载、背负支撑以及可细调的腰带与肩带贴合。",
+      "bestFor": "多日露营、装备较重的行程",
+      "caution": "若装备轻巧，可能有更轻量的选择",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/aether-ariel",
+      "products": [
+        {
+          "name": "Aether 65",
+          "volume": "65 L 系列",
+          "priceUsd": 370,
+          "description": "重负荷徒步方向，强调腰带、背长等可调节的背负结构。",
+          "url": "https://www.osprey.com/aether-trade-65-aether65f20-550"
+        },
+        {
+          "name": "Ariel 65",
+          "volume": "65 L 系列",
+          "priceUsd": 370,
+          "description": "重装家族另一背负版型，需在实际装备负载下试背。",
+          "url": "https://www.osprey.com/ariel-65-ariel65f20-270"
+        }
+      ]
+    },
+    {
+      "id": "rook-renn",
+      "name": "Rook / Renn",
+      "category": "backpacking",
+      "tagline": "更容易入门的多日包",
+      "intro": "把基础多日背负的通风与易用性放在前面，功能相对直接。",
+      "bestFor": "首次选购多日徒步包，希望控制预算",
+      "caution": "更复杂路线或高度可调需求可看其他系列",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/rook-renn-family",
+      "products": [
+        {
+          "name": "Rook 50",
+          "volume": "50 L",
+          "priceUsd": 195,
+          "description": "面向多日入门徒步，提供相对直接的背包组织方式。",
+          "url": "https://www.osprey.com/rook-50l"
+        },
+        {
+          "name": "Renn 50",
+          "volume": "50 L",
+          "priceUsd": 195,
+          "description": "同定位的另一背负版型，适合入门多日徒步比较。",
+          "url": "https://www.osprey.com/renntm-50l"
+        }
+      ]
+    },
+    {
+      "id": "farpoint-fairview",
+      "name": "Farpoint / Fairview",
+      "category": "travel",
+      "tagline": "把旅行箱背在身上",
+      "intro": "采用旅行箱式打开方式，同时考虑长途移动和背包背负。",
+      "bestFor": "跨城市旅行、火车与机场之间切换",
+      "caution": "不等于专门的长线重装徒步背包",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/farpoint-fairview",
+      "products": [
+        {
+          "name": "Farpoint 40",
+          "volume": "40 L",
+          "priceUsd": 200,
+          "description": "可像旅行箱一样开合的大容量旅行背包；登机标准以航司为准。",
+          "url": "https://www.osprey.com/farpointtm-40-travel-pack-1"
+        },
+        {
+          "name": "Fairview 40",
+          "volume": "40 L",
+          "priceUsd": 200,
+          "description": "与 Farpoint 同路线、不同背负版型，适合优先试背比较。",
+          "url": "https://www.osprey.com/fairviewtm-40-travel-pack"
+        }
+      ]
+    },
+    {
+      "id": "sojourn",
+      "name": "Sojourn / Porter",
+      "category": "travel",
+      "tagline": "旅行整理与压缩收纳",
+      "intro": "涵盖箱包式旅行背包和带轮行李，偏途中装载与保护。",
+      "bestFor": "频繁旅行、希望衣物和装备更规整",
+      "caution": "它包含轮式行李，不全是传统双肩背包",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/sojourn",
+      "products": [
+        {
+          "name": "Sojourn Porter 46",
+          "volume": "46 L",
+          "priceUsd": 200,
+          "description": "带压缩保护设计的旅行背包，适合更大行程装载。",
+          "url": "https://www.osprey.com/sojourn-portertm-46l-travel-pack"
+        },
+        {
+          "name": "Sojourn Porter 30",
+          "volume": "30 L",
+          "priceUsd": 175,
+          "description": "体积较小，适合少装或短程旅行的比较起点。",
+          "url": "https://www.osprey.com/sojourn-portertm-30l-travel-pack"
+        }
+      ]
+    },
+    {
+      "id": "transporter",
+      "name": "Transporter",
+      "category": "travel",
+      "tagline": "耐用旅行袋与装备搬运",
+      "intro": "品类包括旅行双肩包、托特和 Duffel 驮包；装载方式优先于日行舒适。",
+      "bestFor": "想搬运装备、周末旅行或对耐用性有需求",
+      "caution": "Duffel 与徒步双肩包的承重体验不同",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/transporter",
+      "products": [
+        {
+          "name": "Transporter Duffel 40",
+          "volume": "40 L · Duffel",
+          "priceUsd": 180,
+          "description": "耐用防泼水面料，肩带可收起；不是专业重装徒步包。",
+          "url": "https://www.osprey.com/transportertm-duffel-40"
+        },
+        {
+          "name": "Transporter Panel Loader",
+          "volume": "通勤双肩",
+          "priceUsd": 120,
+          "description": "Panel Loader 结构便于城市日常收纳，适合与同系列旅行袋比较。",
+          "url": "https://www.osprey.com/transportertm-panel-loader-backpack"
+        }
+      ]
+    },
+    {
+      "id": "mutant",
+      "name": "Mutant",
+      "category": "technical",
+      "tagline": "攀登与高山技术路线",
+      "intro": "面向攀岩、冰雪及高山环境，不应与普通城市双肩包直接比较。",
+      "bestFor": "高山与技术性攀登路线",
+      "caution": "普通徒步或上班使用通常没有必要",
+      "seriesUrl": "https://www.osprey.com/featured/shop-by-collections/new-mutant",
+      "products": [
+        {
+          "name": "Mutant 38",
+          "volume": "38 L",
+          "priceUsd": 210,
+          "description": "适合技术性路线的装备收纳与攀登携带。",
+          "url": "https://www.osprey.com/mutant-38-mutant38f22-376"
+        },
+        {
+          "name": "Mutant 22",
+          "volume": "22 L",
+          "priceUsd": 140,
+          "description": "更紧凑的攀登方向，适合精简的技术装备。",
+          "url": "https://www.osprey.com/mutant-22-mutant22f22-376"
+        }
+      ]
+    }
+  ]
+}

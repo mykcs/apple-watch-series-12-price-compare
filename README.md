@@ -8,7 +8,7 @@
 
 四个品类入口（原来的 Apple 页面和子页面均保留）：
 
-- 小鹰背包 Osprey：/osprey/
+- 小鹰背包 Osprey：按用途选 /osprey/；按系列看 /osprey/series/
 - Apple Watch Series 12：/watch/
 - iPhone 18 Pro Max 256GB：/iphone/
 - Mac 交互选择工具：/mac/
@@ -19,7 +19,9 @@
 ## 页面范围
 
 ### 小鹰背包 Osprey
-新增独立选购入口，按日常通勤、当天徒步、旅行和多日重装四种场景给出待研究型号（Daylite Plus、Talon 22、Farpoint 40、Kestrel 48），链接均指向 Osprey 官方型号页。先核对使用场景、实际携带物品、尺码/背长、试背和购买地区；不预设用户的预算与地区，也不把其他地区的标价写成当地实时成交价。页面不保存个人输入，尚未作出最终购买决定。
+保留 `/osprey/` 四种使用场景的交互式路线（Daylite Plus、Talon 22、Farpoint 40、Kestrel 48），并新增 `/osprey/series/` 系列目录。后者按官网常见家族收录 **18 个系列、36 款代表型号**，支持按类型筛选、文字搜索、逐一展开系列介绍与产品价格，并与按用途路线互相跳转。目录是精选导览，不是所有 SKU。
+
+**价格是静态快照，不是实时报价：** 按 [2026-10-14 小鹰美国官网价格证据](docs/decisions/2026-10-14-osprey-series-us-prices.md) 记录美元参考价格，不转换成香港或内地官方价；颜色、尺码、库存、优惠及税费在实际下单时重新核对。型号与报价仅维护在 [`osprey/series/catalog.json`](osprey/series/catalog.json) 中。
 
 
 ### Apple Watch
