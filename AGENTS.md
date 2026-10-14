@@ -1,6 +1,6 @@
 # Repository Agent instructions
 
-This is a small static Apple purchase-comparison site. Keep the Agent surface thin.
+This is a small static multi-category product selection site (Apple devices and Osprey backpacks). Keep the Agent surface thin.
 
 ## Read first
 
@@ -15,12 +15,13 @@ Do not recursively read every page for a one-route edit.
 - Human-facing scope and comparison intent → `README.md`.
 - Rendered content and interaction → the relevant route `index.html`.
 - Apple prices, education-store availability, product configurations, technical specifications and purchase URLs → current official Apple pages; re-verify before changing dated/current claims.
+- Osprey backpack models, fit, volume, and purchase URLs → official Osprey pages; do not invent a local-market price, sizing result or fit guarantee.
 - Exchange-rate claims → the explicitly dated snapshot documented in the site; do not silently mix dates.
 - Deployment/provider status → live Vercel state when a deployment claim matters. Repository prose is not proof that a deployment is currently healthy.
 
 ## Editing rules
 
-- Preserve route independence: a Watch-only edit should not rewrite iPhone/Mac pages unless the shared claim actually changes.
+- Preserve route independence: a Watch-only edit should not rewrite iPhone/Mac/Osprey pages unless the shared claim actually changes.
 - Keep product/configuration comparisons like-for-like. Do not compare different storage, case size, connectivity or tax assumptions without making the difference explicit.
 - Current/future Apple product facts are time-sensitive. Verify them before editing rather than relying on model memory.
 - This active long-lived repository keeps a thin Wish/Dev system for durable intent and development rationale. Keep it small: do not add a separate Current layer or duplicate time-sensitive Apple facts that already belong to README/source/live official Apple pages.

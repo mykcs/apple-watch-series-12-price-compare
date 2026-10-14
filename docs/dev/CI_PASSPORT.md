@@ -2,7 +2,7 @@
 
 Status: **active — lightweight required PR gate**
 
-Repository: `mykcs/apple-watch-series-12-price-compare`  
+Repository: `mykcs/product-selection`  
 Integration branch: `main`  
 CI mode: `STANDARD_CI`
 
